@@ -1,24 +1,77 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  ## users
+  | Column             | Type   | Options                   |
+  |--------------------|--------|---------------------------|
+  | user_name          | string | null: false               |
+  | email              | string | null: false, unique: true |
+  | encrypted_password | string | null: false               |
 
-Things you may want to cover:
+  ### Association
+    has_many :posts
+    has_many :comments
+    has_many :likes
 
-* Ruby version
 
-* System dependencies
+  ## posts
+  | Column     | Type       | Options                        |
+  |------------|------------|--------------------------------|
+  | title      | string     | null: false                    |
+  | detail     | text       | null: false                    |
+  | literature | text       | null: false                    |
+  | cycle_id   | integer    | null: false                    |
+  | muscle_id  | integer    |                                |
+  | joint_id   | integer    |                                |
+  | neuron_id  | integer    |                                |
+  | user       | references | null: false, foreign_key: true |
 
-* Configuration
+  ### Association
+    belongs_to :user
+    has_many :comments
+    has_many :likes
+    has_many :tags, through: :post_tag_relations
+    has_many :post_tag_relations
 
-* Database creation
 
-* Database initialization
+  ## likes
+  | Column  | Type       | Options           |
+  |---------|------------|-------------------|
+  | user    | references | foreign_key: true |
+  | post    | references | foreign_key: true |
 
-* How to run the test suite
+  ### Association
+    belongs_to :user
+    belongs_to :tweet
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+  ## comments
+  | Column  | Type       | Options           |
+  |---------|------------|-------------------|
+  | user    | references | foreign_key: true |
+  | post    | references | foreign_key: true |
 
-* ...
+  ### Association
+    belongs_to :user
+    belongs_to :tweet
+
+
+  ## tags
+  | Column   | Type   | Options                      |
+  |----------|--------|------------------------------|
+  | tag_name | string | null:false, uniqueness: true |
+
+  ### Association
+    has_many :post_tag_relations
+    has_many :posts, through: :post_tag_relations
+
+
+  ## post_tag_relations
+  | Column  | Type       | Options           |
+  |---------|------------|-------------------|
+  | post    | references | foreign_key: true |
+  | tag     | references | foreign_key: true |
+
+  ### Association
+  belongs_to :post
+  belongs_to :tag
+  
