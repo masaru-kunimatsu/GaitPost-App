@@ -8,7 +8,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.integer :muscle_id
       t.integer :joint_id
       t.integer :neuron_id
-      #t.references :user, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
       t.timestamps
     end
   end
