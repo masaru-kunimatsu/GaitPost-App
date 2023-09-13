@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :likes
+
+  validates :user_name, presence: true
+  validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+\z/ }
 end
