@@ -19,7 +19,7 @@
   | title      | string     | null: false                    |
   | detail     | text       | null: false                    |
   | literature | text       | null: false                    |
-  | cycle_id   | integer    | null: false                    |
+  | walkcycle_id   | integer    | null: false                    |
   | muscle_id  | integer    |                                |
   | joint_id   | integer    |                                |
   | neuron_id  | integer    |                                |

@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @posts = Post.new
+    @post = Post.new
   end
 
   def show
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :detail, :literature, :cycle_id, :muscle_id, :joint_id, :neuron_id).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :detail, :literature, :walkcycle_id, :muscle_id, :joint_id, :neuron_id).merge(user_id: current_user.id)
   end
 
 end

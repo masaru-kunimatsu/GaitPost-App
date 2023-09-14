@@ -1,4 +1,4 @@
-class Cycle < ActiveHash::Base
+class Walkcycle < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
     { id: 2, name: 'IC' },
@@ -13,4 +13,4 @@ class Cycle < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :posts
-  end
+end

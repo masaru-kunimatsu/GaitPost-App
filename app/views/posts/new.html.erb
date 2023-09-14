@@ -1,10 +1,10 @@
-<%= form_with model: @posts, local: true do |form| %>
+<%= form_with model: @post, local: true do |form| %>
   <%= form.text_field :title, placeholder: "タイトル" %><br>
   <%= form.text_area :detail, placeholder: "テキスト" %><br>
   <%= form.text_area :literature, placeholder: "文献" %><br>
-  <%= f.collection_select(:cycle_id, Cycle.all, :id, :name, {}, {class:"select-box", id:"post-cycle"}) %>
-  <%= f.collection_select(:muscle_id, Muscle.all, :id, :name, {}, {class:"select-box", id:"post-muscle"}) %>
-  <%= f.collection_select(:joint_id, Joint.all, :id, :name, {}, {class:"select-box", id:"post-joint"}) %>
-  <%= f.collection_select(:neuron_id, Neuron.all, :id, :name, {}, {class:"select-box", id:"post-neuron"}) %>
+  <%= form.collection_select(:walkcycle_id, Walkcycle.all, :id, :name, {}, {class:"select-box", id:"post-walkcycle"}) %>
+  <%= form.collection_select(:muscle_id, Muscle.all, :id, :name, {}, {class:"select-box", id:"post-muscle"}) %>
+  <%= form.collection_select(:joint_id, Joint.all, :id, :name, {}, {class:"select-box", id:"post-joint"}) %>
+  <%= form.collection_select(:neuron_id, Neuron.all, :id, :name, {}, {class:"select-box", id:"post-neuron"}) %>
   <%= form.submit 'POST'%>
 <% end %>
