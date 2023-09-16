@@ -16,15 +16,55 @@
         あなたの明日からの診療や学習を充実させるためのツールです。
       </p>
     </div>
+    <div class='post'>
+      <div class='post-colmn'>
+        <span class='post-category'>新しい投稿</span>
         <% @posts.each do |post| %>
-          <li class='list'>
+          <li class='post-list'>
             <%= link_to post_path(post.id) do %>
-            <div class='item-info'>
-              <h3 class='item-name'>
-                <%= post.title %>
+            <div class='post-info'>
+              <h3 class='post-title'>
+                <%= post.title%>
               </h3>
+              <p class='post-detail'>
+                <%= post.detail %>
+              </p>
             <% end %>
           </li>
         <% end %>
+      </div>
+      <div class='post-colmn'>
+        <span class='post-category'>あなたがいいねした投稿</span>
+        <% @posts.each do |post| %>
+          <li class='post-list'>
+            <%= link_to post_path(post.id) do %>
+            <div class='post-info'>
+              <h3 class='post-title'>
+                <%= post.title%>
+              </h3>
+              <p class='post-detail'>
+                <%= post.detail %>
+              </p>
+            <% end %>
+          </li>
+        <% end %>
+      </div>
+      <div class='post-colmn'>
+        <span class='post-category'>あなたが閲覧した投稿</span>
+        <% @posts.each do |post| %>
+          <li class='post-list'>
+            <%= link_to post_path(post.id) do %>
+            <div class='post-info'>
+              <h3 class='post-title'>
+                <%= post.title%>
+              </h3>
+              <p class='post-detail'>
+                <%= post.detail %>
+              </p>
+            <% end %>
+          </li>
+        <% end %>
+      </div>
+    </div>
   </div>
 <%= render "shared/footer" %>
