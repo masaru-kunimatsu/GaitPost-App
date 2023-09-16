@@ -1,14 +1,13 @@
 class Walkcycle < ActiveHash::Base
   self.data = [
-    { id: 1, name: '---' },
-    { id: 2, name: 'IC' },
-    { id: 3, name: 'LR' },
-    { id: 4, name: 'MSt' },
-    { id: 5, name: 'TSt' },
-    { id: 6, name: 'PSw' },
-    { id: 7, name: 'ISw' },
-    { id: 8, name: 'MSw' },
-    { id: 9, name: 'TSw' },
+    { id: 1, name: 'IC' },
+    { id: 2, name: 'LR' },
+    { id: 3, name: 'MSt' },
+    { id: 4, name: 'TSt' },
+    { id: 5, name: 'PSw' },
+    { id: 6, name: 'ISw' },
+    { id: 7, name: 'MSw' },
+    { id: 8, name: 'TSw' },
   ]
 
   include ActiveHash::Associations

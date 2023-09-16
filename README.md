@@ -14,16 +14,16 @@
 
 
   ## posts
-  | Column     | Type       | Options                        |
-  |------------|------------|--------------------------------|
-  | title      | string     | null: false                    |
-  | detail     | text       | null: false                    |
-  | literature | text       | null: false                    |
-  | walkcycle_id   | integer    | null: false                    |
-  | muscle_id  | integer    |                                |
-  | joint_id   | integer    |                                |
-  | neuron_id  | integer    |                                |
-  | user       | references | null: false, foreign_key: true |
+  | Column       | Type       | Options                        |
+  |--------------|------------|--------------------------------|
+  | title        | string     | null: false                    |
+  | detail       | text       | null: false                    |
+  | literature   | text       | null: false                    |
+  | walkcycle_id | integer    | null: false                    |
+  | muscle_id    | integer    |                                |
+  | joint_id     | integer    |                                |
+  | neuron_id    | integer    |                                |
+  | user         | references | null: false, foreign_key: true |
 
   ### Association
     belongs_to :user
