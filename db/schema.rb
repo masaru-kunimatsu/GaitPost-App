@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_15_143434) do
+ActiveRecord::Schema.define(version: 2023_09_12_203440) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -30,30 +30,6 @@ ActiveRecord::Schema.define(version: 2023_09_15_143434) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "post_joints", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "post_id", null: false
-    t.integer "joint"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_post_joints_on_post_id"
-  end
-
-  create_table "post_muscles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "post_id", null: false
-    t.integer "muscle"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_post_muscles_on_post_id"
-  end
-
-  create_table "post_neurons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "post_id", null: false
-    t.integer "neuron"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_post_neurons_on_post_id"
-  end
-
   create_table "post_tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "post_id"
     t.bigint "tag_id"
@@ -61,14 +37,6 @@ ActiveRecord::Schema.define(version: 2023_09_15_143434) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_post_tag_relations_on_post_id"
     t.index ["tag_id"], name: "index_post_tag_relations_on_tag_id"
-  end
-
-  create_table "post_walkcycles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "post_id", null: false
-    t.integer "walkcycle", default: 0, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_post_walkcycles_on_post_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -105,11 +73,7 @@ ActiveRecord::Schema.define(version: 2023_09_15_143434) do
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
-  add_foreign_key "post_joints", "posts"
-  add_foreign_key "post_muscles", "posts"
-  add_foreign_key "post_neurons", "posts"
   add_foreign_key "post_tag_relations", "posts"
   add_foreign_key "post_tag_relations", "tags"
-  add_foreign_key "post_walkcycles", "posts"
   add_foreign_key "posts", "users"
 end
