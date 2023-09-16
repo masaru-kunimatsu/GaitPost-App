@@ -1,7 +1,8 @@
 .footer {
   width: 100vw;
-  padding: 5vh 0;
+  height: 50px;
   color: #FFF;
   background-color: #272727;
   text-align: center;
+  line-height:50px;
 }

@@ -1,3 +1,13 @@
 <%= render "shared/header" %>
-index
+  <% @posts.each do |post| %>
+          <li class='list'>
+            <%= link_to post_path(post.id) do %>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= post.title %>
+              </h3>
+            <% end %>
+          </li>
+        <% end %>
+
 <%= render "shared/footer" %>
