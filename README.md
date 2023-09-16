@@ -20,9 +20,6 @@
   | detail       | text       | null: false                    |
   | literature   | text       | null: false                    |
   | walkcycle_id | integer    | null: false                    |
-  | muscle_id    | integer    |                                |
-  | joint_id     | integer    |                                |
-  | neuron_id    | integer    |                                |
   | user         | references | null: false, foreign_key: true |
 
   ### Association
@@ -33,12 +30,6 @@
     has_many :post_tag_relations
     has_many :post_walkcycles
     has_many :walkcycles
-    has_many :post_muscle
-    has_many :muscle
-    has_many :post_joint
-    has_many :joint
-    has_many :post_neuron
-    has_many :neuron
 
   ## likes
   | Column  | Type       | Options           |

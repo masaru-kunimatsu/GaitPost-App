@@ -43,9 +43,7 @@ ActiveRecord::Schema.define(version: 2023_09_12_203440) do
     t.string "title", null: false
     t.text "detail", null: false
     t.text "literature", null: false
-    t.integer "muscle_id"
-    t.integer "joint_id"
-    t.integer "neuron_id"
+    t.integer "walkcycle_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
