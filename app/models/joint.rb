@@ -8,5 +8,6 @@ class Joint < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :posts
+  has_many :posts, through: :post_joints
+  has_many :post_joint
   end

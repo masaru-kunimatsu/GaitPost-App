@@ -4,14 +4,10 @@
   <%= form.text_field :title, placeholder: "タイトル" %><br>
   <%= form.text_area :detail, placeholder: "テキスト" %><br>
   <%= form.text_area :literature, placeholder: "文献" %><br>
-  <%= form.collection_check_boxes(:walkcycle_id, Walkcycle.all, :id, :name, {}, {class: "select-box", id: "post-walkcycle", include_hidden: false}) %>
-  <%#= form.collection_check_boxes(:muscle_id, Muscle.all, :id, :name, {}, {class: "select-box", id: "post-muscle", include_hidden: false}) %>
-  <%#= form.collection_check_boxes(:joint_id, Joint.all, :id, :name, {}, {class: "select-box", id: "post-joint", include_hidden: false}) %>
-  <%#= form.collection_check_boxes(:neuron_id, Neuron.all, :id, :name, {}, {class: "select-box", id: "post-neuron", include_hidden: false}) %>
-  <%#= form.collection_select(:walkcycle_id, Walkcycle.all, :id, :name, {}, {class: "select-box", id: "post-walkcycle", include_hidden: false}) %>
-  <%= form.collection_select(:muscle_id, Muscle.all, :id, :name, {}, {class: "select-box", id: "post-muscle", include_hidden: false}) %>
-  <%= form.collection_select(:joint_id, Joint.all, :id, :name, {}, {class: "select-box", id: "post-joint", include_hidden: false}) %>
-  <%= form.collection_select(:neuron_id, Neuron.all, :id, :name, {}, {class: "select-box", id: "post-neuron", include_hidden: false}) %>
+  <%= form.collection_check_boxes(:walkcycle_ids, Walkcycle.all, :id, :name, {}, { class: "select-box", id: "post-walkcycle", include_hidden: false }) %>
+  <%= form.collection_check_boxes(:muscle_ids, Muscle.all, :id, :name, {}, {class: "select-box", id: "post-muscle", include_hidden: false}) %>
+  <%= form.collection_check_boxes(:joint_ids, Joint.all, :id, :name, {}, {class: "select-box", id: "post-joint", include_hidden: false}) %>
+  <%= form.collection_check_boxes(:neuron_ids, Neuron.all, :id, :name, {}, {class: "select-box", id: "post-neuron", include_hidden: false}) %>
   <%= form.submit 'POST'%>
 <% end %>
 

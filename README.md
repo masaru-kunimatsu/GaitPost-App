@@ -31,7 +31,14 @@
     has_many :likes
     has_many :tags, through: :post_tag_relations
     has_many :post_tag_relations
-
+    has_many :post_walkcycles
+    has_many :walkcycles
+    has_many :post_muscle
+    has_many :muscle
+    has_many :post_joint
+    has_many :joint
+    has_many :post_neuron
+    has_many :neuron
 
   ## likes
   | Column  | Type       | Options           |

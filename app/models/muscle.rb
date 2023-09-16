@@ -9,5 +9,7 @@ class Muscle < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :posts
+  has_many :posts, through: :post_muscles
+  has_many :post_muscle
+
   end

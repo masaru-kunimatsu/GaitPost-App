@@ -1,4 +1,5 @@
 class Walkcycle < ActiveHash::Base
+   extend ActiveHash::Associations::ActiveRecordExtensions 
   self.data = [
     { id: 1, name: 'IC' },
     { id: 2, name: 'LR' },
@@ -12,5 +13,5 @@ class Walkcycle < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :post_walkcycles
-  has_many :posts
+  has_many :posts, through: :post_walkcycles
 end
