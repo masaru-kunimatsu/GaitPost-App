@@ -11,5 +11,6 @@ class Walkcycle < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
+  has_many :post_walkcycles
   has_many :posts
 end

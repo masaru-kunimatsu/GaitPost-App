@@ -5,7 +5,8 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :tags, through: :post_tag_relations
   has_many :post_tag_relations
-  belongs_to :walkcycle
+  has_many :post_walkcycles
+  has_many :walkcycles
   belongs_to :muscle
   belongs_to :joint
   belongs_to :neuron
