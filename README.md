@@ -28,8 +28,7 @@
     has_many :likes
     has_many :tags, through: :post_tag_relations
     has_many :post_tag_relations
-    has_many :post_walkcycles
-    has_many :walkcycles
+    belongs_to :walkcycle
 
   ## likes
   | Column  | Type       | Options           |

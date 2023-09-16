@@ -5,8 +5,7 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :tags, through: :post_tag_relations
   has_many :post_tag_relations
-  has_many :post_walkcycles
-  has_many :walkcycles, through: :post_walkcycles
+  belongs_to :walkcycle
 
 
   validates :title, presence: true, length: { minimum: 1, maximum: 20, message: "can't be blank" }
