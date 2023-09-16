@@ -1,0 +1,12 @@
+<%= render "shared/header" %>
+
+<%= form_with model: @post, local: true do |form| %>
+  <%= form.text_field :title, placeholder: "タイトル" %><br>
+  <%= form.text_area :detail, placeholder: "テキスト" %><br>
+  <%= form.text_area :literature, placeholder: "文献" %><br>
+  <%= form.collection_select(:walkcycle_id, Walkcycle.all, :id, :name, {}, { class: "select-box", id: "post-walkcycle", include_hidden: false }) %>
+タグ
+  <%= form.submit 'POST'%>
+<% end %>
+
+<%= render "shared/footer" %>

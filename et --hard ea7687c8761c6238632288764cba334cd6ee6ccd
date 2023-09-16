@@ -1,0 +1,98 @@
+[33mcommit ea7687c8761c6238632288764cba334cd6ee6ccd[m[33m ([m[1;36mHEAD -> [m[1;32m投稿関連機能[m[33m, [m[1;31morigin/投稿関連機能[m[33m)[m
+Author: masaru-kunimatsu <kmikyakbikfq06i@yahoo.co.jp>
+Date:   Sat Sep 16 13:01:54 2023 +0900
+
+    多対多失敗
+
+[33mcommit e758cdda02ea91fa99c852feccccb8e44f00560e[m
+Author: masaru-kunimatsu <kmikyakbikfq06i@yahoo.co.jp>
+Date:   Sat Sep 16 09:51:54 2023 +0900
+
+    walkcycleと多対多
+
+[33mcommit 5d4d7f1d34535edbaf41da32091ea4682886b399[m
+Author: masaru-kunimatsu <kmikyakbikfq06i@yahoo.co.jp>
+Date:   Sat Sep 16 09:24:29 2023 +0900
+
+    チェックボックス導入前まで完了
+
+[33mcommit bd83a16f0dd6235b67030bf1917d5b38cd254611[m
+Author: masaru-kunimatsu <kmikyakbikfq06i@yahoo.co.jp>
+Date:   Fri Sep 15 06:15:18 2023 +0900
+
+    新規投稿ページ、カラム名変更
+
+[33mcommit a0c7a41c6efd82de01e94f912448c4eef70f273d[m
+Author: masaru-kunimatsu <kmikyakbikfq06i@yahoo.co.jp>
+Date:   Fri Sep 15 05:08:31 2023 +0900
+
+    詳細ページ
+
+[33mcommit 3a04dbfc5376ec6c08abdc98a7bbd0284108721f[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 13da36d a3e3640
+Author: masaru-kunimatsu <132209653+masaru-kunimatsu@users.noreply.github.com>
+Date:   Fri Sep 15 04:25:33 2023 +0900
+
+    Merge pull request #1 from masaru-kunimatsu/user関連機能
+    
+    マイページ作成
+
+[33mcommit a3e3640aaa1fce29ddc06d2b6145db96e5ad8ff5[m[33m ([m[1;31morigin/user関連機能[m[33m, [m[1;32muser関連機能[m[33m)[m
+Author: masaru-kunimatsu <kmikyakbikfq06i@yahoo.co.jp>
+Date:   Fri Sep 15 04:22:33 2023 +0900
+
+    マイページ作成
+
+[33mcommit 13da36d3b02284040eed5b4e3bfa721848e054d3[m
+Author: masaru-kunimatsu <kmikyakbikfq06i@yahoo.co.jp>
+Date:   Thu Sep 14 06:01:23 2023 +0900
+
+    ユーザー新規登録機能
+
+[33mcommit 40f18021f9f3a4bf1aba92ded0810e56b2543670[m
+Author: masaru-kunimatsu <kmikyakbikfq06i@yahoo.co.jp>
+Date:   Thu Sep 14 05:44:53 2023 +0900
+
+    ヘッダーとフッターの修正
+
+[33mcommit fe8871931e9c4e08cdb7e05686a1e0fd59151a17[m
+Author: masaru-kunimatsu <kmikyakbikfq06i@yahoo.co.jp>
+Date:   Wed Sep 13 06:42:39 2023 +0900
+
+    activehash導入
+
+[33mcommit fec955d1a05eba56a414a1edeb0e4a31cb536016[m
+Author: masaru-kunimatsu <kmikyakbikfq06i@yahoo.co.jp>
+Date:   Wed Sep 13 05:37:30 2023 +0900
+
+    model,migration設定
+
+[33mcommit f74db3e4d1e9a3f6394e05f69fe557c408d0e2b8[m
+Author: masaru-kunimatsu <kmikyakbikfq06i@yahoo.co.jp>
+Date:   Wed Sep 13 04:59:34 2023 +0900
+
+    ロゴとトップページ作成
+
+[33mcommit 063bff50ad235e57e20a365fda7298942c94a5b3[m
+Author: masaru-kunimatsu <kmikyakbikfq06i@yahoo.co.jp>
+Date:   Tue Sep 12 05:35:02 2023 +0900
+
+    devise導入
+
+[33mcommit 9ac136088eef14707d178df30418eeb551902e9d[m
+Author: masaru-kunimatsu <kmikyakbikfq06i@yahoo.co.jp>
+Date:   Mon Sep 11 00:06:41 2023 +0900
+
+    READEME
+
+[33mcommit bd30f046d4c3a224bd13526df31a642145dd5f27[m
+Author: masaru-kunimatsu <kmikyakbikfq06i@yahoo.co.jp>
+Date:   Sat Sep 9 06:12:04 2023 +0900
+
+    basic認証
+
+[33mcommit 4900932f09091f304265a7a7f4ecec0cfa7fb159[m
+Author: masaru-kunimatsu <kmikyakbikfq06i@yahoo.co.jp>
+Date:   Fri Sep 8 22:12:52 2023 +0900
+
+    first commit

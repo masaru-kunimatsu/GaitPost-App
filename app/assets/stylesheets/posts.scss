@@ -1,3 +1,47 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.intro {
+  width: 100vw;
+  height:600px;
+  background-image: image-url('walking.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  padding: 0vh 10vw;
+}
+
+.post {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.post-list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #73cee23a;
+  border: 1px solid;
+  border-color: #7bc8d14d;
+  border-radius: 8px;
+  margin: 1vw;
+  text-decoration: none;
+  list-style:none;
+}
+
+.post-title {
+  text-decoration: none;
+  color: #333333;
+}
+
+.post-detail {
+  text-decoration: none;
+  color: #333333;
+}
+
+.post-colmn {
+  padding: 2vw 1vw 1vw 1vw;
+}
+
+.post-category {
+  font-weight: bold;
+  margin: 10px;
+}

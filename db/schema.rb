@@ -43,10 +43,7 @@ ActiveRecord::Schema.define(version: 2023_09_12_203440) do
     t.string "title", null: false
     t.text "detail", null: false
     t.text "literature", null: false
-    t.integer "cycle_id", null: false
-    t.integer "muscle_id"
-    t.integer "joint_id"
-    t.integer "neuron_id"
+    t.integer "walkcycle_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -68,8 +65,6 @@ ActiveRecord::Schema.define(version: 2023_09_12_203440) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "comments", "posts"

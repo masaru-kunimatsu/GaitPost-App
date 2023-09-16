@@ -1,3 +1,70 @@
 <%= render "shared/header" %>
-index
+  <div class='main'>
+    <div class='intro'>
+      <h1 class='service-title'>
+        GAIT POST
+      </h1>
+      <h2 class='service-subtitle'>
+        ～歩行に特化したコミュニケーションツール～
+      </h1>
+      <p class='service-explain'>
+        新人理学療法士の皆さん、学生の皆さん、<br>
+        歩行の分析や評価、治療で困ったことはありませんか？<br>
+      </p>
+      <p class='service-explain'>
+        GAIT POSTは、歩行に関する情報を投稿、共有し、<br>
+        あなたの明日からの診療や学習を充実させるためのツールです。
+      </p>
+    </div>
+    <div class='post'>
+      <div class='post-colmn'>
+        <span class='post-category'>新しい投稿</span>
+        <% @posts.each do |post| %>
+          <li class='post-list'>
+            <%= link_to post_path(post.id) do %>
+            <div class='post-info'>
+              <h3 class='post-title'>
+                <%= post.title%>
+              </h3>
+              <p class='post-detail'>
+                <%= post.detail %>
+              </p>
+            <% end %>
+          </li>
+        <% end %>
+      </div>
+      <div class='post-colmn'>
+        <span class='post-category'>あなたがいいねした投稿</span>
+        <% @posts.each do |post| %>
+          <li class='post-list'>
+            <%= link_to post_path(post.id) do %>
+            <div class='post-info'>
+              <h3 class='post-title'>
+                <%= post.title%>
+              </h3>
+              <p class='post-detail'>
+                <%= post.detail %>
+              </p>
+            <% end %>
+          </li>
+        <% end %>
+      </div>
+      <div class='post-colmn'>
+        <span class='post-category'>あなたが閲覧した投稿</span>
+        <% @posts.each do |post| %>
+          <li class='post-list'>
+            <%= link_to post_path(post.id) do %>
+            <div class='post-info'>
+              <h3 class='post-title'>
+                <%= post.title%>
+              </h3>
+              <p class='post-detail'>
+                <%= post.detail %>
+              </p>
+            <% end %>
+          </li>
+        <% end %>
+      </div>
+    </div>
+  </div>
 <%= render "shared/footer" %>

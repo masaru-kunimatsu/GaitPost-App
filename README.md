@@ -14,16 +14,13 @@
 
 
   ## posts
-  | Column     | Type       | Options                        |
-  |------------|------------|--------------------------------|
-  | title      | string     | null: false                    |
-  | detail     | text       | null: false                    |
-  | literature | text       | null: false                    |
-  | cycle_id   | integer    | null: false                    |
-  | muscle_id  | integer    |                                |
-  | joint_id   | integer    |                                |
-  | neuron_id  | integer    |                                |
-  | user       | references | null: false, foreign_key: true |
+  | Column       | Type       | Options                        |
+  |--------------|------------|--------------------------------|
+  | title        | string     | null: false                    |
+  | detail       | text       | null: false                    |
+  | literature   | text       | null: false                    |
+  | walkcycle_id | integer    | null: false                    |
+  | user         | references | null: false, foreign_key: true |
 
   ### Association
     belongs_to :user
@@ -31,7 +28,7 @@
     has_many :likes
     has_many :tags, through: :post_tag_relations
     has_many :post_tag_relations
-
+    belongs_to :walkcycle
 
   ## likes
   | Column  | Type       | Options           |
