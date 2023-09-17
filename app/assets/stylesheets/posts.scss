@@ -194,3 +194,30 @@
   border: 1px solid #dedede;
   font-size: 14px;
 }
+
+.item-red-btn {
+  text-align: center;
+  background-color: #1a66eada;
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFF;
+  margin: 20px 0px;
+  padding: 2vh 5vw;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.or-text {
+  font-size: 20px;
+}
+
+.item-destroy {
+  background-color: lightgray;
+  text-align: center;
+  font-size: 24px;
+  color: black;
+  margin: 20px 0px;
+  padding: 2vh 5vw;
+  text-decoration: none;
+  border-radius: 8px;
+}

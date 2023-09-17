@@ -19,9 +19,23 @@ class PostsController < ApplicationController
     if @post_form.valid?
       @post_form.save
       redirect_to root_path
-      # redirect_to post_path(@post_form.id)
     else
       render :new
+    end
+  end
+
+  def edit
+    post_attributes = @post.attributes
+    @post_form = PostForm.new(post_attributes)
+  end
+
+  def update
+    @post_form = PostForm.new(post_form_params)
+    if @post_form.valid?
+      @post_form.update(post_form_params, @post)
+      redirect_to root_path
+    else
+      render :edit
     end
   end
 
