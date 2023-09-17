@@ -18,7 +18,8 @@ class PostsController < ApplicationController
     @post_form = PostForm.new(post_form_params)
     if @post_form.valid?
       @post_form.save
-      redirect_to post_path(@post_form.id)
+      redirect_to root_path
+      # redirect_to post_path(@post_form.id)
     else
       render :new
     end
@@ -30,7 +31,7 @@ class PostsController < ApplicationController
 
   private
   def post_form_params
-    params.require(:post).permit(:title, :detail, :literature, :walkcycle_id).merge(user_id: current_user.id)
+    params.require(:post_form).permit(:title, :detail, :literature, :walkcycle_id).merge(user_id: current_user.id)
   end
 
 end

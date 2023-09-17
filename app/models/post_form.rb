@@ -2,9 +2,10 @@ class PostForm
   include ActiveModel::Model
 
   #PostFormクラスのオブジェクトがPostモデルの属性を扱えるようにする
-  attr_accessor :title, :detail, :literature, :walkcycle_id, :user_id, :post_id
+  attr_accessor :title, :detail, :literature, :walkcycle_id, :user_id
 
   with_options presence: true do
+    validates :user_id
     validates :title, presence: true, length: { minimum: 1, maximum: 20, message: "can't be blank" }
     validates :detail, presence: true, length: { minimum: 1, maximum: 1000, message: "can't be blank" }
     validates :literature, presence: true, length: { minimum: 1, maximum: 200, message: "can't be blank" }
@@ -12,6 +13,6 @@ class PostForm
   end
 
   def save
-    Post.create(title: title, detail: detail, literature: literature, walkcycle_id: walkcycle_id)
+    Post.create(title: title, detail: detail, literature: literature, walkcycle_id: walkcycle_id, user_id: user_id)
   end
 end

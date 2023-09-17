@@ -3,7 +3,7 @@
 <div class="post-main">
   <div class="post-sub">
     <h2 class="new-post-title">新規投稿</h2>
-    <%= form_with model: @post, local: true do |form| %>
+    <%= form_with model: @post_form, url: posts_path, method: :post, local: true do |form| %>
       <div class="weight-bold-text">
         タイトル
         <span class="indispensable">必須</span>
