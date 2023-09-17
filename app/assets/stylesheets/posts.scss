@@ -45,3 +45,113 @@
   font-weight: bold;
   margin: 10px;
 }
+
+.post-main {
+  background-color: #f5f5f5;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 500px;
+}
+
+
+.post-sub {
+  background-color: #FFF;
+  width: 70vw;
+  min-width: 450px;
+  padding: 10vh 15vw;
+}
+
+.new-post-title{
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.weight-bold-text {
+  font-weight: bold;
+  min-width: 170px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.indispensable {
+  background: #2d59eac1;
+  margin-left: 8px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.title-box{
+  width: 80%;
+  padding: 16px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+  margin-left: 5%;
+}
+
+.detail-box{
+  width: 80%;
+  padding: 16px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+  margin-left: 5%;
+  height:200px
+}
+
+.literature-box{
+  width: 80%;
+  padding: 16px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+  margin-left: 5%;
+  height:100px
+}
+
+.select-box{
+  width: 80%;
+  padding: 16px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+  margin-left: 5%;
+}
+
+.sell-btn-contents {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+.sell-btn {
+  background: #1a66eada;
+  border: 1px solid #1a66eada;
+  color: #fff;
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  margin-bottom: 4vh;
+  border-radius: 8px;
+}
+
+.back-btn {
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 8px;
+}

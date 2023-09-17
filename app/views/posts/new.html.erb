@@ -1,12 +1,40 @@
 <%= render "shared/header" %>
 
-<%= form_with model: @post, local: true do |form| %>
-  <%= form.text_field :title, placeholder: "タイトル" %><br>
-  <%= form.text_area :detail, placeholder: "テキスト" %><br>
-  <%= form.text_area :literature, placeholder: "文献" %><br>
-  <%= form.collection_select(:walkcycle_id, Walkcycle.all, :id, :name, {}, { class: "select-box", id: "post-walkcycle", include_hidden: false }) %>
-タグ
-  <%= form.submit 'POST'%>
-<% end %>
+<div class="post-main">
+  <div class="post-sub">
+    <h2 class="new-post-title">新規投稿</h2>
+    <%= form_with model: @post, local: true do |form| %>
+      <div class="weight-bold-text">
+        タイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= form.text_field :title, placeholder: "タイトル", class:"title-box" %>
+      <div class="weight-bold-text">
+        内容
+        <span class="indispensable">必須</span>
+      </div>
+        <%= form.text_area :detail, placeholder: "内容", class:"detail-box" %>
+      <div class="weight-bold-text">
+        文献
+        <span class="indispensable">必須</span>
+      </div>
+        <%= form.text_area :literature, placeholder: "文献", class:"literature-box" %><br>
+      <div class="weight-bold-text">
+        歩行周期
+        <span class="indispensable">必須</span>
+      </div>
+        <%= form.collection_select(:walkcycle_id, Walkcycle.all, :id, :name, {}, { class: "select-box", id: "post-walkcycle", include_hidden: false }) %>
+      <div class="weight-bold-text">
+        タグ
+      </div>
+      <div class="sell-btn-contents">
+        <%= form.submit "投稿する" ,class:"sell-btn" %>
+      </div>
+      <div class="sell-btn-contents">
+        <%= link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <%= render "shared/footer" %>
