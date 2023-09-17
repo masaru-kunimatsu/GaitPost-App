@@ -1,9 +1,31 @@
 <%= render "shared/header" %>
 
-<%= @post.user.user_name %>
-<%= @post.title %>
-<%= @post.detail %>
-<%= @post.literature %>
-<%= @post.walkcycle.name %>
-
+<div class="post-show">
+  <div class="post-box">
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">投稿者</th>
+          <td class="detail-value"><%= @post.user.user_name %>
+        </tr>
+        <tr>
+          <th class="detail-item">タイトル</th>
+          <td class="detail-value"><%= @post.title %>
+        </tr>
+        <tr>
+          <th class="detail-item">詳細</th>
+          <td class="detail-value"><%= @post.detail %>
+        </tr>
+        <tr>
+          <th class="detail-item">文献</th>
+          <td class="detail-value"><%= @post.literature %>
+        </tr>
+        <tr>
+          <th class="detail-item">歩行周期</th>
+          <td class="detail-value"><%= @post.walkcycle.name %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 <%= render "shared/footer" %>

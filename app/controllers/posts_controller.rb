@@ -6,17 +6,19 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post_form = PostForm.new
   end
 
   def show
-    
+    @comments = @post.comments.includes(:user)
+    @comment = Comment.new
   end
 
   def create
-    @post = Post.new(post_params)
-    if @post.save
-      redirect_to post_path(@post.id)
+    @post_form = PostForm.new(post_form_params)
+    if @post_form.valid?
+      @post_form.save
+      redirect_to post_path(@post_form.id)
     else
       render :new
     end
@@ -27,7 +29,7 @@ class PostsController < ApplicationController
   end
 
   private
-  def post_params
+  def post_form_params
     params.require(:post).permit(:title, :detail, :literature, :walkcycle_id).merge(user_id: current_user.id)
   end
 
