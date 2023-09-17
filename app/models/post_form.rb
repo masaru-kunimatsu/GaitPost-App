@@ -2,7 +2,7 @@ class PostForm
   include ActiveModel::Model
 
   #PostFormクラスのオブジェクトがPostモデルの属性を扱えるようにする
-  attr_accessor :title, :detail, :literature, :walkcycle_id, :user_id, :id, :created_at, :updated_at
+  attr_accessor :title, :detail, :literature, :walkcycle_id, :user_id, :id, :created_at, :updated_at, :tag_name
 
   with_options presence: true do
     validates :user_id
@@ -13,10 +13,21 @@ class PostForm
   end
 
   def save
-    Post.create(title: title, detail: detail, literature: literature, walkcycle_id: walkcycle_id, user_id: user_id)
+    post = Post.create(title: title, detail: detail, literature: literature, walkcycle_id: walkcycle_id, user_id: user_id)
+    if tag_name.present?
+      tag = Tag.where(tag_name: tag_name).first_or_initialize
+      tag.save
+      PostTagRelation.create(post_id: post.id, tag_id: tag.id)
+    end
+  
   end
 
   def update(params, post)
+    post.post_tag_relations.destroy_all
+    tag_name = params.delete(:tag_name)
+    tag = Tag.where(tag_name: tag_name).first_or_initialize if tag_name.present?
+    tag.save if tag_name.present?
     post.update(params)
+    PostTagRelation.create(post_id: post.id, tag_id: tag.id) if tag_name.present?
   end
 end

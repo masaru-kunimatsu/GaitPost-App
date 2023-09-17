@@ -24,6 +24,10 @@
           <th class="detail-item">歩行周期</th>
           <td class="detail-value"><%= @post.walkcycle.name %>
         </tr>
+        <tr>
+          <th class="detail-item">タグ</th>
+          <td class="detail-value"><%= @post.tags.first.tag_name if @post.tags.first.present? %></td>
+        </tr>
       </tbody>
     </table>
     <% if user_signed_in? && current_user.id == @post.user.id %>
