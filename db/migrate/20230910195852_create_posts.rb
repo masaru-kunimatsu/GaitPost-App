@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.text :detail, null: false
       t.text :literature, null: false
       t.integer :walkcycle_id
+      t.integer :joint_id
       t.references :user, null: false, foreign_key: true
       t.timestamps
     end
