@@ -7,4 +7,8 @@ class Post < ApplicationRecord
   has_many :tags, through: :post_tag_relations
   belongs_to :walkcycle
   belongs_to :joint
+
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
+  end
 end
