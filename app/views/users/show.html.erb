@@ -2,6 +2,7 @@
 
 <div class="mypage">
   <p><%= current_user.user_name %>さんの情報</p>
+  <%= link_to 'ログアウトする', destroy_user_session_path, method: :delete, class: "logout" %><br>
   ユーザーネーム<p><%= current_user.user_name %></p>
   編集する
   メールアドレス<p><%= current_user.email %></p>

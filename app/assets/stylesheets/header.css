@@ -33,13 +33,12 @@
 .lists-right {
   display: flex;
   list-style: none;
-  align-items: center; /* 垂直方向の中央揃え */
+  align-items: center;
 }
 
-/* .lists-rightの子要素を右に寄せる */
 .lists-right li {
-  margin-left: auto; /* 左側に余白を持つことで右寄せにする */
-  margin-right: 10p
+  margin-left: auto;
+  margin-right: 10%;
 }
 
 .user_name {
@@ -65,10 +64,7 @@
   color: #333333;
 }
 
-/* .new_post {
-  text-decoration: none;
-  color: #333333;
-} */
+
 
 .new_post--blue {
   color: #fff;

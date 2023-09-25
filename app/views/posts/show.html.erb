@@ -25,6 +25,10 @@
           <td class="detail-value"><%= @post.walkcycle.name %>
         </tr>
         <tr>
+          <th class="detail-item">関連関節</th>
+          <td class="detail-value"><%= @post.joint.name %>
+        </tr>
+        <tr>
           <th class="detail-item">タグ</th>
           <td class="detail-value"><%= @post.tags.first.tag_name if @post.tags.first.present? %></td>
         </tr>
