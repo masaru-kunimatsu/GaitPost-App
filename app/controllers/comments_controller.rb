@@ -2,8 +2,11 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @post = Post.find(params[:post_id]) #追加
     if @comment.save
-      redirect_to post_path(params[:post_id])
+      CommentChannel.broadcast_to @post, { comment: @comment, user: @comment.user } #追加
+
+      ActionCable.server.broadcast "comment_channel", {comment: @comment, user: @comment.user} #削除
     end
   end
 
