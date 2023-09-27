@@ -39,7 +39,7 @@
 
 # 洗い出した要件
 
-  要件定義シート(https://docs.google.com/document/d/1iN7nWHGShPTzZ-B-sR-lh-HP3I00FMOA/edit#heading=h.gjdgxs)
+  要件定義シート(https://docs.google.com/spreadsheets/d/1WydnLdXvzCwiEBvQNbAMNgGmGzCfmFZsYcYGu4hUM3I/edit#gid=982722306)
 
 # 実装した機能についての画像やGIFおよびその説明
 
