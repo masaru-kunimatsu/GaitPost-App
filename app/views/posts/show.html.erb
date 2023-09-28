@@ -30,7 +30,16 @@
         </tr>
         <tr>
           <th class="detail-item">タグ</th>
-          <td class="detail-value"><%= @post.tags.first.tag_name if @post.tags.first.present? %></td>
+            <td class="detail-value">
+              <% if @post.tags.present? %>
+                <% @post.tags.each do |tag| %>
+                  <%= tag.tag_name %>
+                  <% unless tag == @post.tags.last %>, <% end %>
+                <% end %>
+              <% else %>
+                タグはありません
+              <% end %>
+            </td>
         </tr>
       </tbody>
     </table>
