@@ -16,6 +16,9 @@ class PostsController < ApplicationController
 
   def create
     @post_form = PostForm.new(post_form_params)
+    tag_name = post_form_params[:tag_name]
+    input_tags = tag_name.split(',')
+    @post_form.create_tags(input_tags)
     if @post_form.valid?
       @post_form.save
       redirect_to root_path
@@ -59,6 +62,7 @@ class PostsController < ApplicationController
   def set_post
     @post = Post.find(params[:id])
   end
+
 
   private
   def post_form_params
