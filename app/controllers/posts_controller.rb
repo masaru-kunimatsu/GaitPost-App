@@ -48,7 +48,6 @@ class PostsController < ApplicationController
     tag_name = post_form_params[:tag_name]
     input_tags = tag_name.split(',')
     if @post_form.valid?
-      # @post_form.update(post_form_params, @post)
       @post.post_tag_relations.destroy_all
       input_tags.each do |tag|
         new_tag = Tag.find_or_create_by(tag_name: tag.strip)
