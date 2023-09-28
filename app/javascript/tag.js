@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (XHR.response) {
               const tags = XHR.response.keyword;
               tags.forEach((tag) => {
-                if (!selectedTags.has(tag.tag_name)) {
+                if (!selectedTags.has(tag.tag_name) && !keywords.includes(tag.tag_name)) {
                   const tagElement = document.createElement("div");
                   tagElement.setAttribute("class", "child");
                   tagElement.setAttribute("id", tag.id);
