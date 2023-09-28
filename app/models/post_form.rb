@@ -33,10 +33,4 @@ class PostForm
     PostTagRelation.create(post_id: post.id, tag_id: tag.id) if tag_name.present?
   end
 
-  # def create_tags(input_tags)
-  #   input_tags.each do |tag|                     # splitで分けたtagをeach文で取得する
-  #     new_tag = Tag.find_or_create_by(tag_name: tag) # tagモデルに存在していれば、そのtagを使用し、なければ新規登録する
-  #     # @post_form.tags << new_tag                            # 登録するtopicのtagに紐づける（中間テーブルにも反映される）
-  #   end
-  # end
 end

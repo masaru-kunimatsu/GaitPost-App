@@ -18,7 +18,6 @@ class PostsController < ApplicationController
     @post_form = PostForm.new(post_form_params)
     tag_name = post_form_params[:tag_name]
     input_tags = tag_name.split(',')
-    # @post_form.create_tags(input_tags)
     if @post_form.valid?
       post = Post.new(
         title: @post_form.title,
@@ -41,7 +40,7 @@ class PostsController < ApplicationController
   def edit
     post_attributes = @post.attributes
     @post_form = PostForm.new(post_attributes)
-    @post_form.tag_name = @post.tags.first&.tag_name
+    @post_form.tag_name = @post.tags.map(&:tag_name).join(',')
   end
 
   def update
