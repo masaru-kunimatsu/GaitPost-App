@@ -45,8 +45,15 @@ class PostsController < ApplicationController
 
   def update
     @post_form = PostForm.new(post_form_params)
+    tag_name = post_form_params[:tag_name]
+    input_tags = tag_name.split(',')
     if @post_form.valid?
-      @post_form.update(post_form_params, @post)
+      # @post_form.update(post_form_params, @post)
+      @post.post_tag_relations.destroy_all
+      input_tags.each do |tag|
+        new_tag = Tag.find_or_create_by(tag_name: tag.strip)
+        PostTagRelation.create(post: @post, tag: new_tag)
+      end
       redirect_to root_path
     else
       render :edit
