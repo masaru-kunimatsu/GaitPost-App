@@ -32,4 +32,5 @@ class PostForm
     post.update(params)
     PostTagRelation.create(post_id: post.id, tag_id: tag.id) if tag_name.present?
   end
+
 end

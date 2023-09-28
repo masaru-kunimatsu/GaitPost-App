@@ -1,32 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
   const tagNameInput = document.querySelector("#post_form_tag_name");
-  if (tagNameInput){
+  if (tagNameInput) {
     const inputElement = document.getElementById("post_form_tag_name");
+    const searchResult = document.getElementById("search-result");
+    const selectedTags = new Set(); // 選択されたタグを格納する Set
+
     inputElement.addEventListener("input", () => {
-      const keyword = document.getElementById("post_form_tag_name").value;
-      const XHR = new XMLHttpRequest();
-      XHR.open("GET", `/posts/search/?keyword=${keyword}`, true);
-      XHR.responseType = "json";
-      XHR.send();
-      XHR.onload = () => {
-        const searchResult = document.getElementById("search-result");
-        searchResult.innerHTML = "";
-        if (XHR.response) {
-          const tagName = XHR.response.keyword;
-          tagName.forEach((tag) => {
-            const childElement = document.createElement("div");
-            childElement.setAttribute("class", "child");
-            childElement.setAttribute("id", tag.id);
-            childElement.innerHTML = tag.tag_name;
-            searchResult.appendChild(childElement);
-            const clickElement = document.getElementById(tag.id);
-            clickElement.addEventListener("click", () => {
-              document.getElementById("post_form_tag_name").value = clickElement.textContent;
-              clickElement.remove();
-            });
-          });
-        };
-      };
+      const keywords = inputElement.value.split(',').map(keyword => keyword.trim()); // カンマで区切ってタグを取得
+      searchResult.innerHTML = ""; // 検索結果をクリア
+
+      keywords.forEach((keyword) => {
+        if (keyword.length > 0) {
+          const XHR = new XMLHttpRequest();
+          XHR.open("GET", `/posts/search/?keyword=${keyword}`, true);
+          XHR.responseType = "json";
+          XHR.send();
+
+          XHR.onload = () => {
+            if (XHR.response) {
+              const tags = XHR.response.keyword;
+              tags.forEach((tag) => {
+                if (!selectedTags.has(tag.tag_name)) {
+                  const tagElement = document.createElement("div");
+                  tagElement.setAttribute("class", "child");
+                  tagElement.setAttribute("id", tag.id);
+                  tagElement.innerHTML = tag.tag_name;
+                  searchResult.appendChild(tagElement);
+
+                  tagElement.addEventListener("click", () => {
+                    selectedTags.add(tag.tag_name);
+                    inputElement.value = Array.from(selectedTags).join(","); // フォームの値を更新
+                    searchResult.innerHTML = ""; // クリア後に再描画
+                  });
+                }
+              });
+            }
+          };
+        }
+      });
     });
-  };
+  }
 });
