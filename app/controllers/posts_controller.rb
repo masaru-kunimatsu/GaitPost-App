@@ -76,8 +76,19 @@ class PostsController < ApplicationController
   end
 
   def search_post
-    @q = Post.ransack(params[:q])
-    @posts = @q.result
+    @q = params[:q]
+    if params[:q]&.dig(:tittle)
+      squished_keywords = params[:q][:tittle].squish
+      params[:q][:tittle_cont_any] = squished_keywords.split(" ")
+    end
+    custom_search_conditions = {
+    title_cont_any: @q,
+    detail_cont_any: @q,
+    walkcycle_id_in: @q,
+    joint_id_in: @q
+    }
+    @posts = Post.ransack(custom_search_conditions).result
+    @tags = Tag.ransack(tag_name_any: @q).result
   end
 
   def set_post
