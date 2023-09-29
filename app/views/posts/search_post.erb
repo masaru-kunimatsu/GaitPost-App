@@ -1,0 +1,51 @@
+<%= render "shared/header" %>
+<h3>検索ページ</h3>
+<h3><%= link_to 'トップページへ戻る', root_path%></h3>
+<div class='item-contents' id="detailed-search-result-wrapper">
+  <%= search_form_for @q, url: search_post_posts_path, html: {id: "detailed-search-form"} do |f| %>
+    <div class="search-field">
+      <%= f.label :tittle, 'タイトル' %>
+      <br>
+    <%= f.text_field :tittle, placeholder: 'タイトル', value: params[:q]&.dig(:tittle) %>
+    </div>
+    <div class="search-field">
+      <%= f.label :detail, '内容' %>
+      <br>
+      <%= f.text_field :detail, placeholder: '内容', value: params[:q]&.dig(:tittle) %>
+    </div>
+    <div class="search-field">
+      <%= f.label :walkcycle_id_in, '歩行周期' %>
+      <br>
+      <%= f.collection_check_boxes(:walkcycle_id_in, Walkcycle.all, :id, :name) %>
+    </div>
+    <div class="search-field">
+      <%= f.label :joint_id_in, '関連関節' %>
+      <br>
+      <%= f.collection_check_boxes(:joint_id_in, Joint.all, :id, :name) %>
+    </div>
+    <div class="search-field">
+      <%= f.label :tag_name_in, 'タグ' %>
+      <br>
+      <%= f.text_field :tag_name_in, placeholder: 'タグ' %>
+    </div>
+    <%= f.submit '検索' %>
+  <% end %>
+  <ul class='item-lists' id="detailed-search-result">
+      <% @posts.each do |post| %>
+        <li class='post-list'>
+          <%= link_to post_path(post.id) do %>
+          <div class='post-info'>
+            <h3 class='post-title'>
+              <%= post.title%>
+            </h3>
+          <div id="like-btn<%= post.id %>">
+            <%= render partial: "likes/like", locals: { post: post } %>
+          </div>
+            <p class='post-detail'>
+              <%= post.detail.length > 40 ? post.detail.slice(0, 40) + '...' : post.detail %>
+            </p>
+          <% end %>
+        </li>
+      <% end %>
+  </ul>
+</div>

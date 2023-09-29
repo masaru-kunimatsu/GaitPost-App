@@ -75,6 +75,11 @@ class PostsController < ApplicationController
     render json:{ keyword: tag }
   end
 
+  def search_post
+    @q = Post.ransack(params[:q])
+    @posts = @q.result
+  end
+
   def set_post
     @post = Post.find(params[:id])
   end

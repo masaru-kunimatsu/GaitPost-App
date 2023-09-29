@@ -3,6 +3,9 @@
   <div class='logo'>
     <%= link_to image_tag("logo.png", class:"GPlogo-icon"), "/" %>
   </div>
+  <div class='serch'>
+    <h3><%= link_to '投稿検索', search_post_posts_path%></h3>
+  </div>
   <div class='nav'>
     <ul class='lists-right'>
     <% if user_signed_in? %>
