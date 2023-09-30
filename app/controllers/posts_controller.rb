@@ -76,19 +76,27 @@ class PostsController < ApplicationController
   end
 
   def search_post
-    @q = params[:q]
-    if params[:q]&.dig(:tittle)
-      squished_keywords = params[:q][:tittle].squish
-      params[:q][:tittle_cont_any] = squished_keywords.split(" ")
+    # フォームからのパラメータを許可する
+    @q = params.permit(:title, :detail, :tag_name, walkcycle_id_in: [], joint_id_in: []).to_h
+  
+    puts "Form Data: #{@q.inspect}" # フォームデータを出力
+  
+    if @q[:title].present?
+      squished_keywords = @q[:title].squish
+      @q[:title_cont_any] = squished_keywords.split(" ")
     end
+  
     custom_search_conditions = {
-    title_cont_any: @q,
-    detail_cont_any: @q,
-    walkcycle_id_in: @q,
-    joint_id_in: @q
+      title_cont_any: @q[:title],
+      detail_cont_any: @q[:detail],
+      walkcycle_id_in: @q[:walkcycle_id_in],
+      joint_id_in: @q[:joint_id_in]
     }
+  
+    puts "Search Conditions: #{custom_search_conditions.inspect}" # 検索条件を出力
+  
     @posts = Post.ransack(custom_search_conditions).result
-    @tags = Tag.ransack(tag_name_any: @q).result
+    @tags = Tag.ransack(tag_name_cont_any: @q[:tag_name]).result
   end
 
   def set_post
