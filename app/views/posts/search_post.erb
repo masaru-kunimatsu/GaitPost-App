@@ -1,34 +1,49 @@
 <%= render "shared/header" %>
-<h3>検索ページ</h3>
-<h3><%= link_to 'トップページへ戻る', root_path%></h3>
-<div class='item-contents' id="detailed-search-result-wrapper">
-  <%= form_with url: search_post_posts_path, method: :get, html: { id: "detailed-search-form" } do |f| %>
-    <div class="weight-bold-text">
-      タイトル
+<div class='search_page'>
+  <div class='item-contents' id="detailed-search-result-wrapper">
+    <div class="search_page_title">
+      <h3>検索ページ</h3>
     </div>
-      <%= f.text_field :title, placeholder: 'タイトル', value: params[:q]&.dig(:title) %>
-    <div class="weight-bold-text">
-      内容
-    </div>
-      <%= f.text_field :detail, placeholder: '内容', value: params[:q]&.dig(:detail) %>
-    <div class="weight-bold-text">
-      歩行周期
-    </div>
-      <%= f.collection_check_boxes(:walkcycle_id_in, Walkcycle.all, :id, :name) %>
-    <div class="weight-bold-text">
-      関連関節
-    </div>
-      <%= f.collection_check_boxes(:joint_id_in, Joint.all, :id, :name) %>
-    <div class="weight-bold-text">
-      タグ(,で区切ると複数入力できます)
-    </div>
-      <%= f.text_field :tag_name, placeholder: 'タグ', id: "post_form_tag_name", class:"title-box" %>
-      <div id="search-result"></div>
-    <%= f.submit '検索' %>
-  <% end %>
-  <ul class='item-lists' id="detailed-search-result">
+    <%= form_with url: search_post_posts_path, method: :get, html: { id: "detailed-search-form" } do |f| %>
+      <div class="weight-bold-text">
+        タイトル
+      </div>
+        <%= f.text_field :title, placeholder: 'タイトル', class:"title-box" , value: params[:q]&.dig(:title) %>
+      <div class="weight-bold-text">
+        内容
+      </div>
+        <%= f.text_field :detail, placeholder: '内容', class:"title-box" , value: params[:q]&.dig(:detail) %>
+      <div class="weight-bold-text">
+        歩行周期
+      </div>
+      <%= f.collection_check_boxes(:walkcycle_id_in, Walkcycle.all, :id, :name) do |b| %>
+        <label style="white-space: nowrap;">
+          <%= b.check_box %>
+          <%= b.text %>
+        </label>
+      <% end %>
+      <div class="weight-bold-text">
+        関連関節
+      </div>
+      <%= f.collection_check_boxes(:joint_id_in, Joint.all, :id, :name) do |b| %>
+        <label style="white-space: nowrap;">
+          <%= b.check_box %>
+          <%= b.text %>
+        </label>
+      <% end %>
+      <div class="weight-bold-text">
+        タグ(,で区切ると複数入力できます)
+      </div>
+        <%= f.text_field :tag_name, placeholder: 'タグ', id: "post_form_tag_name", class:"title-box" %>
+        <div id="search-result"></div>
+      <div class="sell-btn-contents">
+        <%= f.submit '検索' ,class:"search-btn" %>
+      </div>
+    <% end %>
+  </div>
+  <div class='item-lists' id="detailed-search-result">
       <% @posts.each do |post| %>
-        <li class='post-list'>
+        <li class='search-post-list'>
           <%= link_to post_path(post.id) do %>
           <div class='post-info'>
             <h3 class='post-title'>
@@ -38,10 +53,10 @@
             <%= render partial: "likes/like", locals: { post: post } %>
           </div>
             <p class='post-detail'>
-              <%= post.detail.length > 40 ? post.detail.slice(0, 40) + '...' : post.detail %>
+              <%= post.detail.length > 200 ? post.detail.slice(0, 200) + '...' : post.detail %>
             </p>
           <% end %>
         </li>
       <% end %>
-  </ul>
+  </div>
 </div>
