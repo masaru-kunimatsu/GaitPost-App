@@ -3,36 +3,27 @@
 <h3><%= link_to 'トップページへ戻る', root_path%></h3>
 <div class='item-contents' id="detailed-search-result-wrapper">
   <%= form_with url: search_post_posts_path, method: :get, html: { id: "detailed-search-form" } do |f| %>
-    <div class="search-field">
-      <%= f.label :title, 'タイトル' %>
-      <br>
+    <div class="weight-bold-text">
+      タイトル
+    </div>
       <%= f.text_field :title, placeholder: 'タイトル', value: params[:q]&.dig(:title) %>
+    <div class="weight-bold-text">
+      内容
     </div>
-    <div class="search-field">
-      <%= f.label :detail, '内容' %>
-      <br>
       <%= f.text_field :detail, placeholder: '内容', value: params[:q]&.dig(:detail) %>
+    <div class="weight-bold-text">
+      歩行周期
     </div>
-    <div class="search-field">
-      <%= f.label :walkcycle_id_in, '歩行周期' %>
-      <br>
       <%= f.collection_check_boxes(:walkcycle_id_in, Walkcycle.all, :id, :name) %>
+    <div class="weight-bold-text">
+      関連関節
     </div>
-    <div class="search-field">
-      <%= f.label :joint_id_in, '関連関節' %>
-      <br>
       <%= f.collection_check_boxes(:joint_id_in, Joint.all, :id, :name) %>
+    <div class="weight-bold-text">
+      タグ(,で区切ると複数入力できます)
     </div>
-
-
-
-      <div class="weight-bold-text">
-        タグ(,で区切ると複数登録できます)
-      </div>
-        <%= f.text_field :tag_name, placeholder: 'タグ', id: "post_form_tag_name", class:"title-box" %>
-        <div id="search-result"></div>
-
-
+      <%= f.text_field :tag_name, placeholder: 'タグ', id: "post_form_tag_name", class:"title-box" %>
+      <div id="search-result"></div>
     <%= f.submit '検索' %>
   <% end %>
   <ul class='item-lists' id="detailed-search-result">

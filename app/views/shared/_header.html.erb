@@ -3,9 +3,6 @@
   <div class='logo'>
     <%= link_to image_tag("logo.png", class:"GPlogo-icon"), "/" %>
   </div>
-  <div class='serch'>
-    <h3><%= link_to '投稿検索', search_post_posts_path%></h3>
-  </div>
   <div class='nav'>
     <ul class='lists-right'>
     <% if user_signed_in? %>
@@ -13,7 +10,8 @@
     <% else %>
       <li><%= link_to 'ログイン/新規登録', new_user_session_path, class: "login" %></li>
     <% end %>
-    <%= link_to '新規投稿', new_post_path, class: 'new_post new_post--blue new_post--cubic new_post--shadow' %>
+    <li><%= link_to '新規投稿', new_post_path, class: 'new_post new_post--blue new_post--cubic new_post--shadow' %>
+    <li><%= link_to '投稿検索', search_post_posts_path, class: 'search_post search_post--blue search_post--cubic new_post--shadow' %>
     </ul>
   </div>
 </header>
