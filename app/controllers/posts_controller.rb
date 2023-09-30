@@ -76,8 +76,9 @@ class PostsController < ApplicationController
   end
 
   def search_post
-
     @q = params.permit(:title, :detail, :tag_name, walkcycle_id_in: [], joint_id_in: []).to_h
+    input_tags = @q[:tag_name].to_s.split(',')
+  
     if @q[:title].present?
       squished_keywords = @q[:title].squish
       @q[:title_cont_any] = squished_keywords.split(" ")
@@ -93,15 +94,17 @@ class PostsController < ApplicationController
     puts "Search Conditions: #{custom_search_conditions.inspect}"
   
     @posts = Post.ransack(custom_search_conditions).result
-    # @tags = Tag.ransack(tag_name_cont_any: @q[:tag_name]).result
-    @tags = Tag.where("tag_name LIKE ?", "%#{@q[:tag_name]}%") if @q[:tag_name].present?
+
+    if input_tags.present?
+      tags_conditions = input_tags.map { |tag| "tag_name LIKE ?" }.join(" OR ")
+      tags_values = input_tags.map { |tag| "%#{tag}%" }
+      @posts = @posts.joins(:tags).where(tags_conditions, *tags_values)
+    end
   end
 
   def set_post
     @post = Post.find(params[:id])
   end
-
-
 
   private
   def post_form_params

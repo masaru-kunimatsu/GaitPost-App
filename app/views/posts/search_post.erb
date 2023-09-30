@@ -8,24 +8,26 @@
       <div class="weight-bold-text">
         タイトル
       </div>
-        <%= f.text_field :title, placeholder: 'タイトル', class:"title-box" , value: params[:q]&.dig(:title) %>
+        <%= f.text_field :title, placeholder: 'タイトル', class:"title-box" , value: params[:title] %>
       <div class="weight-bold-text">
         内容
       </div>
-        <%= f.text_field :detail, placeholder: '内容', class:"title-box" , value: params[:q]&.dig(:detail) %>
+          <%= f.text_field :detail, placeholder: '内容', class:"title-box" , value: params[:detail] %>
       <div class="weight-bold-text">
         歩行周期
       </div>
-      <%= f.collection_check_boxes(:walkcycle_id_in, Walkcycle.all, :id, :name) do |b| %>
+      <%= f.collection_check_boxes(:walkcycle_id_in, Walkcycle.all, :id, :name, { checked: params[:walkcycle_id_in] }) do |b| %>
         <label style="white-space: nowrap;">
           <%= b.check_box %>
           <%= b.text %>
         </label>
       <% end %>
+
+      
       <div class="weight-bold-text">
         関連関節
       </div>
-      <%= f.collection_check_boxes(:joint_id_in, Joint.all, :id, :name) do |b| %>
+      <%= f.collection_check_boxes(:joint_id_in, Joint.all, :id, :name, { checked: params[:joint_id_in] }) do |b| %>
         <label style="white-space: nowrap;">
           <%= b.check_box %>
           <%= b.text %>
@@ -34,7 +36,7 @@
       <div class="weight-bold-text">
         タグ(,で区切ると複数入力できます)
       </div>
-        <%= f.text_field :tag_name, placeholder: 'タグ', id: "post_form_tag_name", class:"title-box" %>
+        <%= f.text_field :tag_name, placeholder: 'タグ', id: "post_form_tag_name", class:"title-box" , value: params[:tag_name] %>
         <div id="search-result"></div>
       <div class="sell-btn-contents">
         <%= f.submit '検索' ,class:"search-btn" %>
