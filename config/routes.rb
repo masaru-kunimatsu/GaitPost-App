@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'posts#index'
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    get :likes 
+  end
   resources :posts do
     collection do
       get 'search'
