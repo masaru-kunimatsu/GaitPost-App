@@ -76,11 +76,8 @@ class PostsController < ApplicationController
   end
 
   def search_post
-    # フォームからのパラメータを許可する
+
     @q = params.permit(:title, :detail, :tag_name, walkcycle_id_in: [], joint_id_in: []).to_h
-  
-    puts "Form Data: #{@q.inspect}" # フォームデータを出力
-  
     if @q[:title].present?
       squished_keywords = @q[:title].squish
       @q[:title_cont_any] = squished_keywords.split(" ")
@@ -93,10 +90,11 @@ class PostsController < ApplicationController
       joint_id_in: @q[:joint_id_in]
     }
   
-    puts "Search Conditions: #{custom_search_conditions.inspect}" # 検索条件を出力
+    puts "Search Conditions: #{custom_search_conditions.inspect}"
   
     @posts = Post.ransack(custom_search_conditions).result
-    @tags = Tag.ransack(tag_name_cont_any: @q[:tag_name]).result
+    # @tags = Tag.ransack(tag_name_cont_any: @q[:tag_name]).result
+    @tags = Tag.where("tag_name LIKE ?", "%#{@q[:tag_name]}%") if @q[:tag_name].present?
   end
 
   def set_post
