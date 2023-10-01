@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       get 'search'
       get 'search_post' 
     end
-    resources :likes, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy]
     resources :comments, only: :create
   end
 end
