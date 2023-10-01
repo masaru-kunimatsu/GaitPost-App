@@ -38,7 +38,7 @@
       </div>
       <div class='post-colmn'>
         <span class='post-category'>あなたがいいねした投稿</span>
-        <% @posts.each do |post| %>
+        <% @like_posts.each do |post| %>
           <li class='post-list'>
             <%= link_to post_path(post.id) do %>
             <div class='post-info'>
