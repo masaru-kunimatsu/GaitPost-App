@@ -2,7 +2,10 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :show ,:update ,:destroy]
 
   def index
-    @posts = Post.all 
+    @posts = Post.all.order(created_at: :desc)
+    likes = Like.where(user_id: current_user.id).pluck(:post_id)
+    @like_posts = Post.find(likes)
+    @posts_have_comments = Post.joins(:comments).distinct
   end
 
   def new
