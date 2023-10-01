@@ -37,41 +37,45 @@
         <% end %>
       </div>
       <div class='post-colmn'>
-        <span class='post-category'>あなたが最近いいねした投稿</span>
-        <% @like_posts.each do |post| %>
-          <li class='post-list'>
-            <%= link_to post_path(post.id) do %>
-            <div class='post-info'>
-              <h3 class='post-title'>
-                <%= post.title%>
-              </h3>
-            <div id="like-btn<%= post.id %>">
-              <%= render partial: "likes/like", locals: { post: post } %>
-            </div>
-              <p class='post-detail'>
-                <%= post.detail.length > 40 ? post.detail.slice(0, 40) + '...' : post.detail %>
-              </p>
-            <% end %>
-          </li>
+        <% if user_signed_in? %>
+          <span class='post-category'>あなたが最近いいねした投稿</span>
+          <% @like_posts.each do |post| %>
+            <li class='post-list'>
+              <%= link_to post_path(post.id) do %>
+              <div class='post-info'>
+                <h3 class='post-title'>
+                  <%= post.title%>
+                </h3>
+              <div id="like-btn<%= post.id %>">
+                <%= render partial: "likes/like", locals: { post: post } %>
+              </div>
+                <p class='post-detail'>
+                  <%= post.detail.length > 40 ? post.detail.slice(0, 40) + '...' : post.detail %>
+                </p>
+              <% end %>
+            </li>
+          <% end %>
         <% end %>
       </div>
       <div class='post-colmn'>
-        <span class='post-category'>最近コメントされた投稿</span>
-        <% @comment_posts.each do |post| %>
-          <li class='post-list'>
-            <%= link_to post_path(post.id) do %>
-            <div class='post-info'>
-              <h3 class='post-title'>
-                <%= post.title%>
-              </h3>
-            <div id="like-btn<%= post.id %>">
-              <%= render partial: "likes/like", locals: { post: post } %>
-            </div>
-              <p class='post-detail'>
-                <%= post.detail.length > 40 ? post.detail.slice(0, 40) + '...' : post.detail %>
-              </p>
-            <% end %>
-          </li>
+        <% if user_signed_in? %>
+          <span class='post-category'>最近コメントされた投稿</span>
+          <% @comment_posts.each do |post| %>
+            <li class='post-list'>
+              <%= link_to post_path(post.id) do %>
+              <div class='post-info'>
+                <h3 class='post-title'>
+                  <%= post.title%>
+                </h3>
+              <div id="like-btn<%= post.id %>">
+                <%= render partial: "likes/like", locals: { post: post } %>
+              </div>
+                <p class='post-detail'>
+                  <%= post.detail.length > 40 ? post.detail.slice(0, 40) + '...' : post.detail %>
+                </p>
+              <% end %>
+            </li>
+          <% end %>
         <% end %>
       </div>
     </div>

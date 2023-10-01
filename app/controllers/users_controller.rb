@@ -5,8 +5,8 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     @posts = current_user.posts.order(created_at: :desc)
     @comment_posts = Post.includes(:comments)
-    .where.not(comments: { id: nil })
-    .order('comments.created_at DESC')
-    .distinct
+      .where(comments: { user_id: current_user.id })
+      .order('comments.created_at DESC')
+      .distinct
   end
 end

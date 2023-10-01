@@ -1,17 +1,22 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :show ,:update ,:destroy]
+  before_action :authenticate_user!, only: [:new ,:create ,:edit ,:update ,:destroy]
 
   def index
-    @posts = Post.all.order(created_at: :desc) 
-    likes = Like.where(user_id: current_user.id).pluck(:post_id)
-    @like_posts = Post.includes(:likes)
-    .where.not(likes: { id: nil })
-    .order('likes.created_at DESC')
-    .distinct
-    @comment_posts = Post.includes(:comments)
-      .where.not(comments: { id: nil })
-      .order('comments.created_at DESC')
-      .distinct
+    @posts = Post.all.order(created_at: :desc)
+    if user_signed_in?
+      likes = Like.where(user_id: current_user.id).pluck(:post_id)
+      @like_posts = Post.includes(:likes)
+      .where(likes: { user_id: current_user.id })
+        .order('likes.created_at DESC')
+      @comment_posts = Post.includes(:comments)
+        .where.not(comments: { id: nil })
+        .order('comments.created_at DESC')
+        .distinct
+    else
+      @like_posts = []
+      @comment_posts = []
+    end
   end
 
   def new
