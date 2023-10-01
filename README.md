@@ -53,12 +53,11 @@
 
 # データベース設計
 
-  [![Image from Gyazo](https://i.gyazo.com/2e504b0b789406a8964989cb760da38e.png)](https://gyazo.com/2e504b0b789406a8964989cb760da38e)
+  [![Image from Gyazo](https://gyazo.com/8ec85e251cea46f96a2cfd0437340ca0)]
 
 # 画面遷移図
 
-  [![Image from Gyazo](https://i.gyazo.com/43426d6f77c4cbd96a7230342cd04c45.png)](https://gyazo.com/43426d6f77c4cbd96a7230342cd04c45)
-
+  [![Image from Gyazo](https://i.gyazo.com/43426d6f77c4cbd96a7230342cd04c45.png)]
 # 開発環境
 
   フロントエンド  

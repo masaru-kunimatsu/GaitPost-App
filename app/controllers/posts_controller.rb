@@ -2,10 +2,9 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :show ,:update ,:destroy]
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc) 
     likes = Like.where(user_id: current_user.id).pluck(:post_id)
     @like_posts = Post.find(likes)
-    @posts_have_comments = Post.joins(:comments).distinct
   end
 
   def new
@@ -93,11 +92,7 @@ class PostsController < ApplicationController
       walkcycle_id_in: @q[:walkcycle_id_in],
       joint_id_in: @q[:joint_id_in]
     }
-  
-    puts "Search Conditions: #{custom_search_conditions.inspect}"
-  
     @posts = Post.ransack(custom_search_conditions).result
-
     if input_tags.present?
       tags_conditions = input_tags.map { |tag| "tag_name LIKE ?" }.join(" OR ")
       tags_values = input_tags.map { |tag| "%#{tag}%" }
