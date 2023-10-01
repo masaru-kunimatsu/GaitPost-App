@@ -37,7 +37,7 @@
         <% end %>
       </div>
       <div class='post-colmn'>
-        <span class='post-category'>あなたがいいねした投稿</span>
+        <span class='post-category'>あなたが最近いいねした投稿</span>
         <% @like_posts.each do |post| %>
           <li class='post-list'>
             <%= link_to post_path(post.id) do %>
@@ -57,7 +57,7 @@
       </div>
       <div class='post-colmn'>
         <span class='post-category'>最近コメントされた投稿</span>
-        <% @posts.each do |post| %>
+        <% @comment_posts.each do |post| %>
           <li class='post-list'>
             <%= link_to post_path(post.id) do %>
             <div class='post-info'>

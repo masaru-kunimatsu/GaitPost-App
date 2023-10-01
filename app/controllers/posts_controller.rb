@@ -4,7 +4,14 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :desc) 
     likes = Like.where(user_id: current_user.id).pluck(:post_id)
-    @like_posts = Post.find(likes)
+    @like_posts = Post.includes(:likes)
+    .where.not(likes: { id: nil }) # コメントがある投稿を絞り込む
+    .order('likes.created_at DESC')
+    .distinct
+    @comment_posts = Post.includes(:comments)
+      .where.not(comments: { id: nil })
+      .order('comments.created_at DESC')
+      .distinct
   end
 
   def new
