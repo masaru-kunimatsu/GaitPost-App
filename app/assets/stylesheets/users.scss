@@ -192,3 +192,14 @@
   text-align: center;
   color: red;
 }
+
+.user-post {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.user-contents{
+  width: 30vw;
+  padding: 0px 20px 0px 20px;
+}
