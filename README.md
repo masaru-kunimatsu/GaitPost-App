@@ -57,7 +57,7 @@
 
 # 画面遷移図
 
-  [![Image from Gyazo](https://i.gyazo.com/43426d6f77c4cbd96a7230342cd04c45.png)]
+  [![Image from Gyazo](https://gyazo.com/b8c24d733f45836fa269e44dde6ae112)]
 # 開発環境
 
   フロントエンド  
