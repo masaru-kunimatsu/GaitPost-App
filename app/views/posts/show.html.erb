@@ -61,6 +61,8 @@
           <%= f.text_area :text , placeholder: "こちらにコメントを入力してください", class:"comment-box"%>
           <%= f.submit "コメントを投稿する", class: "comment-submit" %>
         <% end %>
+      <% else%>
+        <h4><%= link_to 'ログインするとコメントを投稿できます', new_user_session_path, class: "login" %></h4>
       <% end %>
     </div>
 
