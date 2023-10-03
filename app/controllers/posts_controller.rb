@@ -65,9 +65,10 @@ class PostsController < ApplicationController
       @post.post_tag_relations.destroy_all
       input_tags.each do |tag|
         new_tag = Tag.find_or_create_by(tag_name: tag.strip)
-        PostTagRelation.create(post: @post, tag: new_tag)
+        PostTagRelation.update(post: @post, tag: new_tag)
       end
-      redirect_to root_path
+      @post.update(post_form_params.except(:tag_name))
+      redirect_to action: :show
     else
       render :edit
     end
