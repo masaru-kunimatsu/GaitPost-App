@@ -3,6 +3,9 @@
 <div class="post-show">
   <div class="post-box">
     <table class="detail-table">
+      <div id="like-btn<%= @post.id %>">
+        <%= render partial: "likes/like", locals: { post: @post } %>
+      </div>
       <tbody>
         <tr>
           <th class="detail-item">投稿者</th>
