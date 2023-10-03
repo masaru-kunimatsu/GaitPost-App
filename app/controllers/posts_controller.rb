@@ -62,12 +62,20 @@ class PostsController < ApplicationController
     tag_name = post_form_params[:tag_name]
     input_tags = tag_name.split(',')
     if @post_form.valid?
+      @post.update(
+        title: @post_form.title,
+        detail: @post_form.detail,
+        literature: @post_form.literature,
+        walkcycle_id: @post_form.walkcycle_id,
+        joint_id: @post_form.joint_id
+      )
       @post.post_tag_relations.destroy_all
+      new_tags = []
       input_tags.each do |tag|
         new_tag = Tag.find_or_create_by(tag_name: tag.strip)
-        PostTagRelation.update(post: @post, tag: new_tag)
+        new_tags << new_tag
       end
-      @post.update(post_form_params.except(:tag_name))
+      @post.tags = new_tags
       redirect_to action: :show
     else
       render :edit
