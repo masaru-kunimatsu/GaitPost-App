@@ -7,12 +7,17 @@ class PostsController < ApplicationController
     if user_signed_in?
       likes = Like.where(user_id: current_user.id).pluck(:post_id)
       @like_posts = Post.includes(:likes)
-      .where(likes: { user_id: current_user.id })
+        .where(likes: { user_id: current_user.id })
         .order('likes.created_at DESC')
+      like_post_ids = @like_posts.pluck(:id)
       @comment_posts = Post.includes(:comments)
         .where.not(comments: { id: nil })
         .order('comments.created_at DESC')
         .distinct
+      @comment_posts = @comment_posts.reject { |post| like_post_ids.include?(post.id) }
+      comment_post_ids = @comment_posts.pluck(:id)
+      @posts = @posts.reject { |post| like_post_ids.include?(post.id) }
+      @posts = @posts.reject { |post| comment_post_ids.include?(post.id) }
     else
       @like_posts = []
       @comment_posts = []
