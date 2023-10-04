@@ -25,6 +25,8 @@
   margin: 1vw;
   text-decoration: none;
   list-style:none;
+  white-space: normal;
+  display: inline-block; 
 }
 
 .post-title {
@@ -39,6 +41,9 @@
 
 .post-colmn {
   padding: 2vw 1vw 1vw 1vw;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 70%; 
 }
 
 .post-category {
@@ -288,6 +293,8 @@
 
 .search_page{
   display: flex;
+  max-width: 100vw;
+  overflow-x: hidden; 
 }
 
 .item-contents{

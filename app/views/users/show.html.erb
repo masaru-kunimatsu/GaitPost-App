@@ -14,13 +14,13 @@
     </div>
       <p><%= current_user.email %></p>
     <div class="sell-btn-contents">
-      <%= link_to 'ログアウトする', destroy_user_session_path, method: :delete, class: "search-btn" %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "search-btn" %>
     </div>
   </div>
 
   <div class='user-post'>
     <div class='post-colmn'>
-      <span class='post-category'>あなたの投稿</span>
+      <h3 class='post-category'>あなたの投稿</h3>
       <% @posts.each do |post| %>
         <li class='post-list'>
           <%= link_to post_path(post.id) do %>
@@ -40,7 +40,7 @@
       <% end %>
     </div>
     <div class='post-colmn'>
-      <span class='post-category'>あなたがコメントした投稿</span>
+      <h3 class='post-category'>あなたがコメントした投稿</h3>
       <% @comment_posts.each do |post| %>
         <li class='post-list'>
           <%= link_to post_path(post.id) do %>

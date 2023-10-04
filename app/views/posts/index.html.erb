@@ -18,7 +18,7 @@
     </div>
     <div class='post'>
       <div class='post-colmn'>
-        <span class='post-category'>新しい投稿</span>
+        <h3 class='post-category'>新しい投稿</h3>
         <% @posts.each do |post| %>
           <li class='post-list'>
             <%= link_to post_path(post.id) do %>
@@ -38,7 +38,7 @@
       </div>
       <div class='post-colmn'>
         <% if user_signed_in? %>
-          <span class='post-category'>あなたが最近いいねした投稿</span>
+          <h3 class='post-category'>あなたが最近いいねした投稿</h3>
           <% @like_posts.each do |post| %>
             <li class='post-list'>
               <%= link_to post_path(post.id) do %>
@@ -59,7 +59,7 @@
       </div>
       <div class='post-colmn'>
         <% if user_signed_in? %>
-          <span class='post-category'>最近コメントされた投稿</span>
+          <h3 class='post-category'>最近コメントされた投稿</h3>
           <% @comment_posts.each do |post| %>
             <li class='post-list'>
               <%= link_to post_path(post.id) do %>
