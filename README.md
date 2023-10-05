@@ -53,7 +53,7 @@
 
 # データベース設計
 
-  [![Image from Gyazo](https://gyazo.com/8ec85e251cea46f96a2cfd0437340ca0)]
+  [こちらの画像をご確認ください](https://gyazo.com/8ec85e251cea46f96a2cfd0437340ca0)]
 
 # 画面遷移図
 
