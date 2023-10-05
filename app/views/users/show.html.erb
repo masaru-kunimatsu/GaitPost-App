@@ -33,7 +33,7 @@
             <%= render partial: "likes/like", locals: { post: post } %>
           </div>
             <p class='post-detail'>
-              <%= post.detail.length > 50 ? post.detail.slice(0, 50) + '...' : post.detail %>
+              <%= post.detail.length > 40 ? post.detail.slice(0, 40) + '...' : post.detail %>
             </p>
           <% end %>
         </li>
@@ -53,7 +53,7 @@
             <%= render partial: "likes/like", locals: { post: post } %>
           </div>
             <p class='post-detail'>
-              <%= post.detail.length > 50 ? post.detail.slice(0, 50) + '...' : post.detail %>
+              <%= post.detail.length > 40 ? post.detail.slice(0, 40) + '...' : post.detail %>
             </p>
           <% end %>
         </li>

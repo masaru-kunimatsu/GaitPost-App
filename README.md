@@ -44,13 +44,16 @@
 
 # 実装した機能についての画像やGIFおよびその説明
 
-  投稿検索機能
-  指定した条件に合致する投稿が表示されます。
+  ## 投稿検索機能  
+  指定した条件に合致する投稿が表示されます。  
   [![Image from Gyazo](https://i.gyazo.com/07ff4c846aeeab1a43fb26c5ba985d70.gif)](https://gyazo.com/07ff4c846aeeab1a43fb26c5ba985d70)
-
-  新規投稿機能
-
   
+  ## 新規投稿機能  
+  タイトル、内容、文献、歩行周期、関節、タグを指定して投稿できます。  
+  
+
+
+
 
 # 実装予定の機能
 
@@ -79,8 +82,8 @@
 
 # ローカルでの動作方法
 
-  以下のコマンドを順に実行してください
-  % git clone https://github.com/masaru-kunimatsu/GaitPost-App
-  % cd GaitPost-App
-  % bundle install
-  % yarn install
+  以下のコマンドを順に実行してください  
+  % git clone https://github.com/masaru-kunimatsu/GaitPost-App  
+  % cd GaitPost-App  
+  % bundle install  
+  % yarn install  

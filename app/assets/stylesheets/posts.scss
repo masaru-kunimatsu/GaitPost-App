@@ -17,7 +17,7 @@
 
 .post-list {
   width: 37vh;
-  height: 70%;
+  height: 210px;
   padding: 1vw;
   background-color: #73cee23a;
   border: 1px solid;
@@ -28,6 +28,12 @@
   list-style:none;
   white-space: normal;
   display: inline-block; 
+  vertical-align: top; 
+}
+
+.post-colmn ul {
+  margin: 0;
+  padding: 0;
 }
 
 .post-title {
@@ -45,6 +51,7 @@
   overflow-x: auto;
   white-space: nowrap;
   width: 70%; 
+  height : 330px;
 }
 
 .post-category {
