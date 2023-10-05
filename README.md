@@ -53,23 +53,22 @@
 
 # データベース設計
 
-  https://gyazo.com/8ec85e251cea46f96a2cfd0437340ca0
-
+  [![Image from Gyazo](https://i.gyazo.com/8ec85e251cea46f96a2cfd0437340ca0.png)](https://gyazo.com/8ec85e251cea46f96a2cfd0437340ca0)
+  
 # 画面遷移図
 
   [![Image from Gyazo](https://gyazo.com/b8c24d733f45836fa269e44dde6ae112)]
 # 開発環境
 
-  フロントエンド  
-  バックエンド  
-  インフラ  
-  テスト  
-  テキストエディタ  
-  タスク管理  
-  Ruby on Rails  
-  Javascript
-  Github
+  Ruby
+  Ruby on Rails
+  JavaScript
+  MySQL
+  HTML
+  CSS
+  GitHub 
   Render
+  Visual Studio Code 
 
 # ローカルでの動作方法
 
