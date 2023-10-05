@@ -40,11 +40,17 @@
 
 # 洗い出した要件
 
-  要件定義シート(https://docs.google.com/spreadsheets/d/1WydnLdXvzCwiEBvQNbAMNgGmGzCfmFZsYcYGu4hUM3I/edit#gid=982722306)
+  [要件定義シートはこちらをご確認ください](https://docs.google.com/spreadsheets/d/1WydnLdXvzCwiEBvQNbAMNgGmGzCfmFZsYcYGu4hUM3I/edit#gid=982722306)
 
 # 実装した機能についての画像やGIFおよびその説明
 
-  今後追加予定です。
+  投稿検索機能
+  指定した条件に合致する投稿が表示されます。
+  [![Image from Gyazo](https://i.gyazo.com/07ff4c846aeeab1a43fb26c5ba985d70.gif)](https://gyazo.com/07ff4c846aeeab1a43fb26c5ba985d70)
+
+  新規投稿機能
+
+  
 
 # 実装予定の機能
 
@@ -58,7 +64,7 @@
 # 画面遷移図
 
   [![Image from Gyazo](https://i.gyazo.com/b8c24d733f45836fa269e44dde6ae112.png)](https://gyazo.com/b8c24d733f45836fa269e44dde6ae112)
-  
+
 # 開発環境
 
   Ruby
@@ -73,4 +79,8 @@
 
 # ローカルでの動作方法
 
-  今後記載します。
+  以下のコマンドを順に実行してください
+  % git clone https://github.com/masaru-kunimatsu/GaitPost-App
+  % cd GaitPost-App
+  % bundle install
+  % yarn install
