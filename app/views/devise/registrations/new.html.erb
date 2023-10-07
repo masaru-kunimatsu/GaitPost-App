@@ -2,18 +2,16 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-<%= render 'shared/error_messages', model: f.object %>
-
   <div class='form-wrap'>
     <div class='form-header'>
       <h2 class='form-header-text'>
           サインアップ
       </h2>
     </div>
-
+    <%= render 'shared/error_messages', model: f.object %>
     <div class="form-group">
       <div class='form-text-wrap'>
-        <label class="form-text">ユーザーネーム</label>
+        <label class="form-text">ユーザーネーム（2～12文字）</label>
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :user_name, class:"input-default", id:"nickname", placeholder:"例) walk太郎", maxlength:"40" %>
@@ -29,7 +27,7 @@
 
     <div class="form-group">
       <div class='form-text-wrap'>
-        <label class="form-text">パスワード</label>
+        <label class="form-text">パスワード(6～12文字、半角英数字）</label>
         <span class="indispensable">必須</span>
       </div>
       <%= f.password_field :password, class:"input-default", id:"password", placeholder:"" %>
