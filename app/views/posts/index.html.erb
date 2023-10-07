@@ -15,6 +15,21 @@
         GAIT POSTは、歩行に関する情報を投稿、共有し、<br>
         あなたの明日からの診療や学習を充実させるためのツールです。
       </p>
+      <div class = 'index-btn'>
+        <%= link_to 'さっそく検索してみよう！', search_post_posts_path, class: 'index_search_post index_search_post--blue index_search_post--cubic index_new_post--shadow' %>
+      </div>
+      <% if user_signed_in? %>
+        <div class = 'index-btn'>
+          <%= link_to 'ログインはこちら', new_user_session_path, class: 'index_new_user index_new_user--blue index_new_user--cubic index_new_user--shadow' %>
+        </div>
+        <div class = 'index-btn'>
+          <%= link_to '投稿をしてみよう！', new_post_path, class: 'index_new_post index_new_post--blue index_new_post--cubic index_new_post--shadow' %>
+        </div>
+      <% else %>
+        <div class = 'index-btn'>
+          <%= link_to '会員登録（無料）でもっと便利に！', new_user_registration_path, class: 'index_new_user index_new_user--blue index_new_user--cubic index_new_user--shadow' %>
+        </div>
+      <% end %>
     </div>
     <div class='post'>
       <div class='post-colmn'>
