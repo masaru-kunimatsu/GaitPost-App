@@ -4,21 +4,22 @@
   <div class="post-sub">
     <h2 class="new-post-title">投稿を編集する</h2>
     <%= form_with model: @post_form, url: post_path(@post.id), method: :patch, local: true do |form| %>
+      <%= render 'shared/error_messages', model: form.object %>
       <div class="weight-bold-text">
         タイトル
         <span class="indispensable">必須</span>
       </div>
-      <%= form.text_field :title, placeholder: "タイトル", class:"title-box" %>
+      <%= form.text_field :title, placeholder: "タイトル(20文字以内)", class:"title-box" %>
       <div class="weight-bold-text">
         内容
         <span class="indispensable">必須</span>
       </div>
-        <%= form.text_area :detail, placeholder: "内容", class:"detail-box" %>
+        <%= form.text_area :detail, placeholder: "内容(1000文字以内)", class:"detail-box" %>
       <div class="weight-bold-text">
         文献
         <span class="indispensable">必須</span>
       </div>
-        <%= form.text_area :literature, placeholder: "文献", class:"literature-box" %><br>
+        <%= form.text_area :literature, placeholder: "文献(1000文字以内)", class:"literature-box" %><br>
       <div class="weight-bold-text">
         歩行周期
         <span class="indispensable">必須</span>
@@ -32,7 +33,7 @@
       <div class="weight-bold-text">
         タグ(,で区切ると複数登録できます)
       </div>
-        <%= form.text_field :tag_name, placeholder: 'タグ',class:"title-box" %>
+        <%= form.text_field :tag_name, placeholder: 'タグ(最大30文字,最大10個)',class:"title-box" %>
         <div id="search-result"></div>
       <div class="sell-btn-contents">
         <%= form.submit "保存する" ,class:"sell-btn" %>
