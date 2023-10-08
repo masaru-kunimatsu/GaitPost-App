@@ -6,12 +6,12 @@ class PostForm
 
   with_options presence: true do
     validates :user_id
-    validates :title, length: { minimum: 1, maximum: 20, message: "タイトルは1文字以上20文字以内で入力してください" }
-    validates :detail, length: { minimum: 1, maximum: 1000, message: "詳細は1文字以上1000文字以内で入力してください" }
-    validates :literature, length: { minimum: 1, maximum: 1000, message: "文献は1文字以上1000文字以内で入力してください" }
+    validates :title, length: { minimum: 1, maximum: 20}
+    validates :detail, length: { minimum: 1, maximum: 1000}
+    validates :literature, length: { minimum: 1, maximum: 1000}
   end
   
-  with_options numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 8, message: "不適切な値が選択されています" } do
+  with_options numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 8 } do
     validates :walkcycle_id
     validates :joint_id
   end

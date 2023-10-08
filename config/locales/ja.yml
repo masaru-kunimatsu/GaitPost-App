@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        user_name: ユーザーネーム
+  activemodel:
+    attributes:
+      post_form:
+        title: タイトル
+        detail: 詳細
+        literature: 文献
+        walkcycle_id: 歩行周期
+        joint_id: 関連関節
+        tag_name: タグ
