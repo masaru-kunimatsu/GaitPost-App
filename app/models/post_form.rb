@@ -6,13 +6,17 @@ class PostForm
 
   with_options presence: true do
     validates :user_id
-    validates :title, presence: true, length: { minimum: 1, maximum: 20, message: "can't be blank" }
-    validates :detail, presence: true, length: { minimum: 1, maximum: 1000, message: "can't be blank" }
-    validates :literature, presence: true, length: { minimum: 1, maximum: 1000, message: "can't be blank" }
-    validates :walkcycle_id , presence: true, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 8} 
-    validates :joint_id , presence: true, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 8} 
-
+    validates :title, length: { minimum: 1, maximum: 20, message: "タイトルは1文字以上20文字以内で入力してください" }
+    validates :detail, length: { minimum: 1, maximum: 1000, message: "詳細は1文字以上1000文字以内で入力してください" }
+    validates :literature, length: { minimum: 1, maximum: 1000, message: "文献は1文字以上1000文字以内で入力してください" }
   end
+  
+  with_options numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 8, message: "不適切な値が選択されています" } do
+    validates :walkcycle_id
+    validates :joint_id
+  end
+
+  validate :validate_tags
 
   def save
     post = Post.create(title: title, detail: detail, literature: literature, walkcycle_id: walkcycle_id, joint_id: joint_id, user_id: user_id)
@@ -33,4 +37,11 @@ class PostForm
     PostTagRelation.create(post_id: post.id, tag_id: tag.id) if tag_name.present?
   end
 
+  def validate_tags
+    tags = tag_name.split(',')
+    tags.each do |tag|
+      errors.add(:tag_name, ":1つのタグは30文字以内で入力してください") if tag.length > 30
+    end
+      errors.add(:tag_name, ":タグは最大10個まで登録できます") if tags.size > 10
+  end
 end
