@@ -1,0 +1,62 @@
+<%= render "shared/header" %>
+<div class='search_page'>
+  <div class='item-contents' id="detailed-search-result-wrapper">
+    <div class="search_page_title">
+      <h3>検索ページ</h3>
+    </div>
+    <%= form_with url: search_post_posts_path, method: :get, html: { id: "detailed-search-form" }, local: true do |f| %>
+      <div class="weight-bold-text">
+        タイトル
+      </div>
+        <%= f.text_field :title, placeholder: 'タイトル', class:"title-box" , value: params[:title] %>
+      <div class="weight-bold-text">
+        内容
+      </div>
+          <%= f.text_field :detail, placeholder: '内容', class:"title-box" , value: params[:detail] %>
+      <div class="weight-bold-text">
+        歩行周期
+      </div>
+      <%= f.collection_check_boxes(:walkcycle_id_in, Walkcycle.all, :id, :name, { checked: params[:walkcycle_id_in] }) do |b| %>
+        <label style="white-space: nowrap;">
+          <%= b.check_box %>
+          <%= b.text %>
+        </label>
+      <% end %>
+      <div class="weight-bold-text">
+        関連関節
+      </div>
+      <%= f.collection_check_boxes(:joint_id_in, Joint.all, :id, :name, { checked: params[:joint_id_in] }) do |b| %>
+        <label style="white-space: nowrap;">
+          <%= b.check_box %>
+          <%= b.text %>
+        </label>
+      <% end %>
+      <div class="weight-bold-text">
+        タグ(,で区切ると複数入力できます)
+      </div>
+        <%= f.text_field :tag_name, placeholder: 'タグ', id: "post_form_tag_name", class:"title-box" , value: params[:tag_name] %>
+        <div id="search-result"></div>
+      <div class="sell-btn-contents">
+        <%= f.submit '検索', class:"search-btn", id: "search-button" %>
+      </div>
+    <% end %>
+  </div>
+  <div class='item-lists' id="detailed-search-result">
+      <% @posts.each do |post| %>
+        <li class='search-post-list'>
+          <%= link_to post_path(post.id) do %>
+          <div class='post-info'>
+            <h3 class='post-title'>
+              <%= post.title%>
+            </h3>
+          <div id="like-btn<%= post.id %>">
+            <%= render partial: "likes/like", locals: { post: post } %>
+          </div>
+            <p class='post-detail'>
+              <%= post.detail.length > 200 ? post.detail.slice(0, 200) + '...' : post.detail %>
+            </p>
+          <% end %>
+        </li>
+      <% end %>
+  </div>
+</div>
