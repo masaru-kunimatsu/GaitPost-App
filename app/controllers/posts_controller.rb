@@ -24,6 +24,28 @@ class PostsController < ApplicationController
     end
   end
 
+  def liked_post
+    if user_signed_in?
+      likes = Like.where(user_id: current_user.id).pluck(:post_id)
+      @posts = Post.includes(:likes)
+        .where(likes: { user_id: current_user.id })
+        .order('likes.created_at DESC')
+    else
+      @posts = []
+    end
+  end
+
+  def commented_post
+    if user_signed_in?
+      @posts = Post.includes(:comments)
+        .where.not(comments: { id: nil })
+        .order('comments.created_at DESC')
+        .distinct
+    else
+      @posts = []
+    end
+  end
+
   def new
     @post_form = PostForm.new
   end
@@ -118,7 +140,7 @@ class PostsController < ApplicationController
       walkcycle_id_in: @q[:walkcycle_id_in],
       joint_id_in: @q[:joint_id_in]
     }
-    @posts = Post.ransack(custom_search_conditions).result
+    @posts = Post.ransack(custom_search_conditions).result.order(created_at: :desc)
     if input_tags.present?
       tags_conditions = input_tags.map { |tag| "tag_name LIKE ?" }.join(" OR ")
       tags_values = input_tags.map { |tag| "%#{tag}%" }
