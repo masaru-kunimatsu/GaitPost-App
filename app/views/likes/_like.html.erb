@@ -1,8 +1,10 @@
 <% if user_signed_in? %>
   <% if post.liked_by?(current_user) %>
-    <%= link_to "#{post.like_count}件のいいね/いいね済", post_likes_path(post.id), method: :delete, class: "post_likes", remote: true %>
+    <i class="icon-heart-solid fa-solid fa-heart"></i>
+    <%= link_to "#{post.like_count}件のいいね", post_likes_path(post.id), method: :delete, class: "post_likes", remote: true %>
   <% else %>
-    <%= link_to "#{post.like_count}件のいいね/いいねする", post_likes_path(post.id), method: :post, class: "post_likes", remote: true %>
+    <i class="icon-heart-regular fa-regular fa-heart"></i>
+    <%= link_to "#{post.like_count}件のいいね", post_likes_path(post.id), method: :post, class: "post_likes", remote: true %>
   <% end %>
 <% else %>
   <%= post.like_count %>件のいいね
