@@ -10,7 +10,7 @@
   <%= post.comment_count %>件
 <% else %>
   <i class="icon-heart-regular fa-regular fa-heart"></i>
-  <%= post.like_count %>件
+  <span class="post_likes" style="display: inline-block;"><%=post.like_count %>件</span>
   <i class="fa-solid fa-comment"></i>
   <%= post.comment_count %>件
 <% end %>
