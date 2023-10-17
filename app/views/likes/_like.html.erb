@@ -6,7 +6,11 @@
     <i class="icon-heart-regular fa-regular fa-heart"></i>
     <%= link_to "#{post.like_count}件", post_likes_path(post.id), method: :post, class: "post_likes", remote: true %>
   <% end %>
+  <i class="fa-solid fa-comment"></i>
+  <%= post.comment_count %>件
 <% else %>
   <i class="icon-heart-regular fa-regular fa-heart"></i>
   <%= post.like_count %>件
+  <i class="fa-solid fa-comment"></i>
+  <%= post.comment_count %>件
 <% end %>

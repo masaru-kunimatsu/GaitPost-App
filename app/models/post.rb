@@ -16,6 +16,10 @@ class Post < ApplicationRecord
     likes.count
   end
 
+  def comment_count
+    comments.count
+  end
+
   def recent_comments
     comments.order(created_at: :desc)
   end
