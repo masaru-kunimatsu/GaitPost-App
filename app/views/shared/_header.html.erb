@@ -6,12 +6,12 @@
   <div class='nav'>
     <ul class='lists-right'>
     <% if user_signed_in? %>
-      <li>ようこそ、<%= link_to current_user.user_name, user_path(current_user), class: "user_name" %>さん</li>
+      <li><i class="fa-solid fa-user"></i>ようこそ、<%= link_to current_user.user_name, user_path(current_user), class: "user_name" %>さん</li>
     <% else %>
-      <li><%= link_to 'ログイン/新規登録', new_user_session_path, class: "login" %></li>
+       <%= link_to "#{raw('<i class="fa-solid fa-user"></i>')} ログイン/新規登録".html_safe, new_user_session_path, class: "login" %>
     <% end %>
-    <li><%= link_to '新規投稿', new_post_path, class: 'new_post new_post--blue new_post--cubic new_post--shadow' %>
-    <li><%= link_to '投稿検索', search_post_posts_path, class: 'search_post search_post--blue search_post--cubic new_post--shadow' %>
+    <li><%= link_to "#{raw('<i class="fa-solid fa-circle-plus"></i>')} 投稿する".html_safe, new_post_path, class: 'new_post new_post--blue new_post--cubic new_post--shadow' %>
+    <li><%= link_to "#{raw('<i class="fa-solid fa-magnifying-glass"></i>')} 検索する".html_safe, search_post_posts_path, class: 'search_post search_post--blue search_post--cubic new_post--shadow' %>
     </ul>
   </div>
 </header>

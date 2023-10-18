@@ -3,7 +3,7 @@
 }
 
 .header {
-  width: 100vw;
+  width: 99vw;
   height: 70px;
   display: flex;
 }
@@ -12,22 +12,22 @@
   display: flex;
   align-items: center;
   background-color: rgba(132, 216, 255, 0.825);
-  width: 40%;
+  width: 30%;
 }
 
 .GPlogo-icon {
-  width: 50%;
   margin: auto;
+  width: 50%;
   display: block;
 }
 
 .nav {
   font-size: 18px;
-  width: 60%;
+  width: 70%;
   background-color: rgba(132, 216, 255, 0.825);
-  /* padding-right: 10vw; */
-  padding-left: 15vw;
-  justify-content: flex-end ; 
+  display: flex;
+  justify-content: center ; 
+  white-space: nowrap;
 }
 
 .lists-right {
