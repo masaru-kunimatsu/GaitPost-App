@@ -33,7 +33,7 @@
     </div>
     <div class='post'>
       <div class='post-colmn'>
-        <h3><%= link_to '新しい投稿', search_post_posts_path, class: 'post-category' %></h3>
+        <h3><%= link_to "#{raw('<i class="fa-solid fa-star"></i>')} 新しい投稿".html_safe, search_post_posts_path, class: 'post-category' %></h3>
         <% @posts.each do |post| %>
           <li class='post-list'>
             <%= link_to post_path(post.id) do %>
@@ -53,7 +53,7 @@
       </div>
       <div class='post-colmn'>
         <% if user_signed_in? %>
-          <h3><%= link_to 'あなたが最近いいねした投稿', liked_post_posts_path, class: 'post-category' %></h3>
+          <h3><%= link_to "#{raw('<i class="fa-solid fa-thumbs-up"></i>')} あなたが最近いいねした投稿".html_safe, liked_post_posts_path, class: 'post-category' %></h3>
           <% @like_posts.each do |post| %>
             <li class='post-list'>
               <%= link_to post_path(post.id) do %>
@@ -74,7 +74,7 @@
       </div>
       <div class='post-colmn'>
         <% if user_signed_in? %>
-          <h3><%= link_to '最近コメントされた投稿', commented_post_posts_path, class: 'post-category' %></h3>
+          <h3><%= link_to "#{raw('<i class="fa-solid fa-comments"></i>')} 最近コメントされた投稿".html_safe, commented_post_posts_path, class: 'post-category' %></h3>
           <% @comment_posts.each do |post| %>
             <li class='post-list'>
               <%= link_to post_path(post.id) do %>
