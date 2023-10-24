@@ -6,7 +6,26 @@
   background-repeat: no-repeat;
   background-position: top center;
   padding: 0vh 10vw;
+  animation: fadeup 3s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 }
+ 
+@keyframes fadeup {
+  0% {
+    transform: translateY(20vh);
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
 
 .index-btn {
   margin: 40px 0px 50px 0px;
