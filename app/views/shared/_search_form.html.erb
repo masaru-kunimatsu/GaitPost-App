@@ -42,21 +42,25 @@
     <% end %>
   </div>
   <div class='item-lists' id="detailed-search-result">
-      <% @posts.each do |post| %>
-        <li class='search-post-list'>
-          <%= link_to post_path(post.id) do %>
-          <div class='post-info'>
-            <h3 class='post-title'>
-              <%= post.title%>
-            </h3>
-          <div id="like-btn<%= post.id %>">
-            <%= render partial: "likes/like", locals: { post: post } %>
-          </div>
-            <p class='post-detail'>
-              <%= post.detail.length > 200 ? post.detail.slice(0, 200) + '...' : post.detail %>
-            </p>
-          <% end %>
-        </li>
+      <% if @posts.any? %>
+        <% @posts.each do |post| %>
+          <li class='search-post-list'>
+            <%= link_to post_path(post.id) do %>
+            <div class='post-info'>
+              <h3 class='post-title'>
+                <%= post.title%>
+              </h3>
+            <div id="like-btn<%= post.id %>">
+              <%= render partial: "likes/like", locals: { post: post } %>
+            </div>
+              <p class='post-detail'>
+                <%= post.detail.length > 200 ? post.detail.slice(0, 200) + '...' : post.detail %>
+              </p>
+            <% end %>
+          </li>
+        <% end %>
+      <% else %>
+        <p>該当する投稿がありません。条件を変更して再度検索してください。</p>
       <% end %>
   </div>
 </div>

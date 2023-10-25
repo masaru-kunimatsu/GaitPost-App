@@ -6,9 +6,28 @@
   background-repeat: no-repeat;
   background-position: top center;
   padding: 0vh 10vw;
-  animation: fadeup 3s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  animation-name:fadeRightAnime;
+  animation-duration:6s;
+  animation-fill-mode:forwards;
+  opacity:0;
 }
  
+@keyframes fadeRightAnime{
+  from {
+    opacity: 0;
+	transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+	transform: translateX(0);
+  }
+}
+
+.service-explain {
+  animation: fadeup 6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
 @keyframes fadeup {
   0% {
     transform: translateY(20vh);
@@ -24,11 +43,23 @@
 }
 
 
-
-
-
 .index-btn {
   margin: 40px 0px 50px 0px;
+  animation: fadeup 6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+@keyframes fadeup {
+  0% {
+    transform: translateY(20vh);
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .index_new_post--blue {
@@ -431,6 +462,22 @@
   margin: 1vw;
   text-decoration: none;
   list-style:none;
+  animation-name:fadeRightAnime;
+  animation-duration:2s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+
+@keyframes fadeLeftAnime{
+  from {
+    opacity: 0;
+	transform: translateX(-30vw);
+  }
+
+  to {
+    opacity: 1;
+	transform: translateX(0);
+  }
 }
 
 .check-boxes{
