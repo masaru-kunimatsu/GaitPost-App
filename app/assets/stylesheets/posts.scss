@@ -139,9 +139,9 @@
   width: 37vh;
   height: 210px;
   padding: 1vw;
-  background-color: #73cee23a;
+  background-color: #73cee26b;
   border: 1px solid;
-  border-color: #7bc8d14d;
+  border-color: #79c8e6c6;
   border-radius: 8px;
   margin: 1vw;
   text-decoration: none;
@@ -167,10 +167,12 @@
 }
 
 .post-colmn {
-  padding: 2vw 1vw 1vw 1vw;
+  margin: 2vw 1vw 1vw 1vw;
   overflow-x: auto;
   white-space: nowrap;
   width: 70%; 
+  background-color:#ceeff49c;
+  border-radius: 8px;
 }
 
 .post-category {
