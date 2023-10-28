@@ -452,6 +452,10 @@
 .item-lists{
   width: 70vw;
   padding: 30px 20px 0px 20px;
+  animation-name:fadeRightAnime;
+  animation-duration:0.2s;
+  animation-fill-mode:forwards;
+  opacity:0;
 }
 
 .search-post-list {
